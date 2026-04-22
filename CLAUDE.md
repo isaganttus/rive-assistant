@@ -34,7 +34,8 @@ Always provide cross-platform context when relevant. Default code examples to Ja
 - **State Machine**: Visual graph connecting animations with logic. Contains states, transitions, layers, and listeners.
 - **State**: A node in the state machine graph. Types: Entry, Exit, Any State, Animation State, 1D Blend State, Additive Blend State.
 - **Transition**: Connection between states with conditions, duration, exit time, and interpolation.
-- **Layer**: Parallel track in a state machine. Each layer plays one animation at a time. Rightmost layer has priority.
+- **Layer (state machine)**: Parallel track in a state machine. Each layer plays one animation at a time. Rightmost layer has priority.
+- **Layer (hierarchy)**: An object in the canvas/scene layer hierarchy. Upmost layer is drawn above what is below unless a Draw Rule modifies the behavior.
 - **Listener**: In-editor interaction handler. Target (hit area) + User Action (click, hover, etc.) + Action (view model change, event, align).
 - **View Model**: Blueprint for data (class). Properties are fields. Instances are live objects with values. The modern contract between designers and developers.
 - **View Model Instance**: Living version of a view model with actual values. Must be "Exported" to be visible to runtime developers.
