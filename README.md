@@ -1,5 +1,9 @@
 # rive-assistant
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Last commit](https://img.shields.io/github/last-commit/isaganttus/rive-assistant)](https://github.com/isaganttus/rive-assistant/commits/main)
+[![Sync docs paths](https://github.com/isaganttus/rive-assistant/actions/workflows/sync-docs-paths.yml/badge.svg)](https://github.com/isaganttus/rive-assistant/actions/workflows/sync-docs-paths.yml)
+
 A Rive expert assistant for AI models. Drop it into any AI coding environment to get a context-aware Rive co-pilot that can help you plan projects, write Luau scripts, navigate runtimes, and answer technical questions — always grounded in the official Rive documentation.
 
 ## What's included
@@ -39,9 +43,16 @@ git submodule update --remote
 
 ## Usage
 
-### AI coding tools (Claude Code, Cursor, Windsurf, etc.)
+### AI coding tools
 
 Open the cloned folder as your working directory. The `CLAUDE.md` file is picked up automatically as project context.
+
+| Tool | How it works |
+|------|-------------|
+| Claude Code | `CLAUDE.md` loaded automatically as project context |
+| Cursor | `CLAUDE.md` loaded automatically as project rules |
+| Windsurf | Add `CLAUDE.md` as a custom rule in settings |
+| GitHub Copilot Workspace | Attach `CLAUDE.md` as a system prompt |
 
 ### Other AI tools
 
@@ -67,4 +78,6 @@ To get the latest version, run `git pull` in your `rive-assistant` folder. If th
 
 ## Contributing
 
-The `rive-reference/` files are hand-curated summaries. If you find outdated information or missing coverage, PRs are welcome.
+The `rive-reference/` files are hand-curated summaries. If you find outdated information or missing coverage, PRs are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+
+Please note that this project follows a [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you agree to uphold it.
