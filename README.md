@@ -45,14 +45,7 @@ git submodule update --remote
 
 ### AI coding tools
 
-Open the cloned folder as your working directory. The `CLAUDE.md` file is picked up automatically as project context.
-
-| Tool | How it works |
-|------|-------------|
-| Claude Code | `CLAUDE.md` loaded automatically as project context |
-| Cursor | `CLAUDE.md` loaded automatically as project rules |
-| Windsurf | Add `CLAUDE.md` as a custom rule in settings |
-| GitHub Copilot Workspace | Attach `CLAUDE.md` as a system prompt |
+Open the cloned folder as your working directory. The `CLAUDE.md` file is picked up automatically as project context in Claude Code. For other tools (Cursor, Windsurf, Copilot Workspace, etc.), consult your tool's docs for how to load a custom rules or system prompt file, then point it at `CLAUDE.md`.
 
 ### Other AI tools
 
