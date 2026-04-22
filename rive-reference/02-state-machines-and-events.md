@@ -104,6 +104,13 @@ Events can fire from: Timeline (at specific frame), State (start/end), Transitio
 - Export: Embedded (larger .riv), Referenced (separate files), Hosted (CDN)
 - Best for: Sound effects. Not for: background music, voice-overs (no volume/panning control yet)
 
+### Audio via Scripting
+Audio can also be triggered programmatically using the `Audio` global scripting API:
+- `Context:audio(name)` — get a handle to an audio asset
+- `Audio:play*()` — play audio, returns an `AudioSound` instance
+- `AudioSound` methods: `play()`, `pause()`, `resume()`, `stop()`, `seek(seconds)`, `volume`
+- Source docs: `scripting/api-reference/interfaces/audio-source`, `scripting/api-reference/interfaces/audio-sound`
+
 ## Inputs — DEPRECATED
 
 Legacy control mechanism. **Use Data Binding with View Models instead.**
@@ -136,7 +143,7 @@ Activates when state machine or animation is selected. Shows timeline with keyfr
 1. Use **listeners** for all in-editor interactive UI behaviors
 2. Use **view model properties** for state machine transition conditions (not inputs)
 3. Use **data binding** for all designer-developer communication
-4. **Audio events** are still valid for sound triggering
+4. **Audio events** are still valid for sound triggering from timelines, transitions, and listeners. The scripting `Audio` API is the alternative for programmatic control.
 5. **Layers**: Rightmost wins for property conflicts
 6. **Exit Time**: Controls animation completion before transition
 7. **Any State + multiple layers**: Enable complex interaction patterns
