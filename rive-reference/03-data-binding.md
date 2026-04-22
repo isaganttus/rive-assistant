@@ -55,7 +55,7 @@ Legacy Inputs do NOT support: strings, enums, colors, nesting, lists, images, ar
 - Can be changed from multiple sources
 - Property values carry most recent data
 - Better for internal reactivity through listeners
-- **Limitation**: Cannot yet play audio (Audio Events still use legacy Events)
+- **Audio**: Audio Events (legacy) still handle sound triggering from timelines/transitions/listeners. Audio can also be triggered via scripting using the `Audio` global API.
 
 ## View Model Nesting
 
