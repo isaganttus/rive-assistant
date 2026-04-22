@@ -137,6 +137,10 @@ https://raw.githubusercontent.com/rive-app/rive-docs/main/docs.json
 ```
 Search the `pages` arrays for the topic, then construct the correct URL with the path found there.
 
+If **3 or more** fetches in a session return 404 (even after consulting `docs.json`), warn the user:
+
+> Several documentation paths couldn't be found. The routing table in this repo may be out of date with the current Rive docs structure. Consider running `git pull` in your `rive-assistant` folder to get the latest version.
+
 ### Important: Always verify code against source docs
 
 The reference files contain concepts and patterns but may not have exact, up-to-date API signatures. When writing code, read the relevant source file to confirm current API details.
