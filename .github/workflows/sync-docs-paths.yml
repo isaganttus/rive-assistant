@@ -9,12 +9,12 @@ jobs:
   check-paths:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
 
       - name: Fetch latest docs.json
         run: |
           curl -sf https://raw.githubusercontent.com/rive-app/rive-docs/main/docs.json \
-            -o /tmp/docs-latest.json
+            -o /tmp/docs-latest.json || exit 1
 
       - name: Extract page paths
         run: |
@@ -70,7 +70,7 @@ jobs:
 
       - name: Open PR
         if: steps.compare.outputs.changed == 'true'
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@5e914681df9dc83aa4e4905692ca88beb2f9e91f  # v7.0.5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: sync/docs-paths
