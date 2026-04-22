@@ -89,24 +89,53 @@ docs.json         — Full navigation structure
 
 ### Navigation rules
 
+All source paths below are relative. Append `.mdx` when fetching from GitHub or reading locally.
+
 | When asked about... | First read | Then if needed |
 |---|---|---|
-| Editor features, shapes, bones, text | `rive-reference/01-editor-fundamentals.md` | `editor/fundamentals/`, `editor/text/`, `editor/constraints/` |
-| State machines, transitions, layers | `rive-reference/02-state-machines-and-events.md` | `editor/state-machine/` |
-| Listeners, interaction | `rive-reference/02-state-machines-and-events.md` | `editor/state-machine/listeners.mdx` |
-| Data binding, view models | `rive-reference/03-data-binding.md` | `editor/data-binding/`, `runtimes/data-binding.mdx` |
-| Lists, dynamic content | `rive-reference/03-data-binding.md` | `editor/data-binding/lists.mdx` |
-| Layouts, responsive UI | `rive-reference/04-layouts.md` | `editor/layouts/` |
-| Scripting, Luau, protocols | `rive-reference/05-scripting.md` | `scripting/protocols/`, `scripting/api-reference/` |
-| Script API details | `rive-reference/05-scripting.md` | `scripting/api-reference/**/*.mdx` |
-| Runtime integration (general) | `rive-reference/06-runtimes-overview.md` | `runtimes/getting-started.mdx` |
-| Web or React runtime | `rive-reference/07-web-react-runtime.md` | `runtimes/web/`, `runtimes/react/` |
-| Flutter, iOS, Android, React Native | `rive-reference/08-mobile-runtimes.md` | `runtimes/flutter/`, `runtimes/apple/`, etc. |
-| Unity, Unreal, Defold | `rive-reference/09-game-runtimes.md` | `game-runtimes/unity/`, `game-runtimes/unreal/` |
-| Performance, optimization | `rive-reference/10-best-practices.md` | `getting-started/best-practices.mdx` |
+| Editor interface, toolbar, hierarchy | `rive-reference/01-editor-fundamentals.md` | `editor/interface-overview/overview`, `editor/interface-overview/toolbar`, `editor/interface-overview/hierarchy` |
+| Shapes, paths, groups, fill/stroke | `rive-reference/01-editor-fundamentals.md` | `editor/fundamentals/shapes-and-paths-overview`, `editor/fundamentals/fill-and-stroke`, `editor/fundamentals/groups` |
+| Bones, meshes, joysticks, solos | `rive-reference/01-editor-fundamentals.md` | `editor/manipulating-shapes/bones`, `editor/manipulating-shapes/meshes`, `editor/manipulating-shapes/joysticks`, `editor/manipulating-shapes/solos` |
+| Text | `rive-reference/01-editor-fundamentals.md` | `editor/text/text-overview`, `editor/text/text-runs`, `editor/text/text-styles` |
+| Constraints | `rive-reference/01-editor-fundamentals.md` | `editor/constraints/constraints-overview`, then the specific constraint file |
+| Animation, timeline, keys | `rive-reference/01-editor-fundamentals.md` | `editor/animate-mode/animate-mode-overview`, `editor/animate-mode/timeline`, `editor/animate-mode/keys` |
+| State machines, states, blend states | `rive-reference/02-state-machines-and-events.md` | `editor/state-machine/state-machine`, `editor/state-machine/states` |
+| Transitions | `rive-reference/02-state-machines-and-events.md` | `editor/state-machine/transitions` |
+| Layers | `rive-reference/02-state-machines-and-events.md` | `editor/state-machine/layers` |
+| Listeners, interaction | `rive-reference/02-state-machines-and-events.md` | `editor/state-machine/listeners` |
+| Inputs (legacy) | `rive-reference/02-state-machines-and-events.md` | `editor/state-machine/inputs` |
+| Events, audio events | `rive-reference/02-state-machines-and-events.md` | `editor/events/overview`, `editor/events/audio-events` |
+| Data binding, view models, bindings, converters | `rive-reference/03-data-binding.md` | `editor/data-binding/overview`, `editor/data-binding/property-types` |
+| Enums | `rive-reference/03-data-binding.md` | `editor/data-binding/enums` |
+| Lists, dynamic content | `rive-reference/03-data-binding.md` | `editor/data-binding/lists` |
+| Layouts, responsive UI, Hug/Fill/Fixed | `rive-reference/04-layouts.md` | `editor/layouts/layouts-overview`, `editor/layouts/layout-parameters` |
+| N-Slicing | `rive-reference/04-layouts.md` | `editor/layouts/n-slicing` |
+| Scrolling | `rive-reference/04-layouts.md` | `editor/layouts/scrolling` |
+| Scripting, Luau, getting started | `rive-reference/05-scripting.md` | `scripting/getting-started`, `scripting/creating-scripts` |
+| Protocols (Node, Layout, Converter, etc.) | `rive-reference/05-scripting.md` | `scripting/protocols/overview`, then the specific protocol file |
+| Script API details | `rive-reference/05-scripting.md` | `scripting/api-reference/<category>/<name>` |
+| Runtime integration (general) | `rive-reference/06-runtimes-overview.md` | `runtimes/getting-started` |
+| Web runtime | `rive-reference/07-web-react-runtime.md` | `runtimes/web/web-js`, then the specific topic (e.g. `runtimes/web/state-machines`, `runtimes/web/data-binding`) |
+| React runtime | `rive-reference/07-web-react-runtime.md` | `runtimes/react/react`, then the specific topic (e.g. `runtimes/react/data-binding`) |
+| React Native | `rive-reference/08-mobile-runtimes.md` | `runtimes/react-native/react-native` |
+| Flutter | `rive-reference/08-mobile-runtimes.md` | `runtimes/flutter/flutter`, then the specific topic |
+| iOS / Apple | `rive-reference/08-mobile-runtimes.md` | `runtimes/apple/apple`, then the specific topic |
+| Android | `rive-reference/08-mobile-runtimes.md` | `runtimes/android/android`, then the specific topic |
+| Unity | `rive-reference/09-game-runtimes.md` | `game-runtimes/unity/unity`, `game-runtimes/unity/getting-started` |
+| Unreal | `rive-reference/09-game-runtimes.md` | `game-runtimes/unreal/unreal`, `game-runtimes/unreal/getting-started` |
+| Defold | `rive-reference/09-game-runtimes.md` | `game-runtimes/defold` |
+| Performance, optimization | `rive-reference/10-best-practices.md` | `getting-started/best-practices` |
 | Project planning | `rive-reference/00-concept-map.md` first, then relevant domain files | Combine multiple references as needed |
 | Writing code | Always verify API signatures against source docs before providing code | Don't guess — read the source |
 | Topic lookup / "where is X" | `rive-reference/00-concept-map.md` | Follow the file paths listed there |
+
+### If a fetch returns 404
+
+Fetch `docs.json` from the root to discover the correct path:
+```
+https://raw.githubusercontent.com/rive-app/rive-docs/main/docs.json
+```
+Search the `pages` arrays for the topic, then construct the correct URL with the path found there.
 
 ### Important: Always verify code against source docs
 
