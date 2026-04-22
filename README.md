@@ -57,6 +57,14 @@ Use the contents of `CLAUDE.md` as a system prompt, and make the `rive-reference
 - **Runtimes** — Web, React, React Native, Flutter, iOS, Android, Unity, Unreal, Defold
 - **Best practices** — Performance, file organization, cross-platform patterns
 
+## Staying up to date
+
+The routing table in `CLAUDE.md` is kept in sync with the official Rive docs structure. When the Rive team reorganizes their docs, this repo gets updated automatically via a weekly check.
+
+To get the latest version, run `git pull` in your `rive-assistant` folder. If the assistant starts warning you that docs paths can't be found, that's a sign it's time to pull.
+
+**Watch this repo on GitHub** to get notified when updates are pushed — click the Watch button and choose "All activity" or "Releases only".
+
 ## Contributing
 
 The `rive-reference/` files are hand-curated summaries. If you find outdated information or missing coverage, PRs are welcome.
