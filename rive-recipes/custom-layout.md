@@ -48,7 +48,18 @@ end
 
 -- Only called when parent uses Hug sizing; propose the layout's ideal size.
 function measure(self: MasonryLayout): Vec2D
-  return Vec2D.xy(0, 0) -- runtime computes from the resize pass
+  local cols = {}
+  for i = 1, COLS do cols[i] = 0 end
+  for _, child in ipairs(self:children()) do
+    local minCol = 1
+    for c = 2, COLS do
+      if cols[c] < cols[minCol] then minCol = c end
+    end
+    cols[minCol] = cols[minCol] + child:intrinsicHeight() + GAP
+  end
+  local maxH = 0
+  for _, h in ipairs(cols) do if h > maxH then maxH = h end end
+  return Vec2D.xy(0, math.max(0, maxH - GAP)) -- subtract trailing gap
 end
 
 return function(): Layout<MasonryLayout>
