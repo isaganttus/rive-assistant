@@ -25,7 +25,7 @@ jobs:
           PAGES = sorted([
               "editor/data-binding/overview",
               "editor/data-binding/lists",
-              "editor/layouts/overview",
+              "editor/layouts/layouts-overview",
               "editor/state-machine/listeners",
               "editor/state-machine/state-machine",
               "editor/state-machine/transitions",
