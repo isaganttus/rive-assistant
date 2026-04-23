@@ -1,0 +1,99 @@
+name: Sync content hashes
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'  # Every Monday at 9am UTC
+  workflow_dispatch:
+
+jobs:
+  check-content:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
+
+      - name: Fetch and hash critical docs pages
+        run: |
+          python3 - <<'EOF' > /tmp/hashes-latest.txt
+          import hashlib
+          import subprocess
+          import sys
+
+          BASE = "https://raw.githubusercontent.com/rive-app/rive-docs/main/"
+          PAGES = sorted([
+              "editor/data-binding/overview",
+              "editor/data-binding/lists",
+              "editor/layouts/overview",
+              "editor/state-machine/listeners",
+              "editor/state-machine/state-machine",
+              "editor/state-machine/transitions",
+              "getting-started/best-practices",
+              "runtimes/android/android",
+              "runtimes/apple/apple",
+              "runtimes/flutter/flutter",
+              "runtimes/react/react",
+              "runtimes/web/web-js",
+              "scripting/getting-started",
+              "scripting/protocols/converter-scripts",
+              "scripting/protocols/node-scripts",
+          ])
+
+          lines = []
+          for page in PAGES:
+              url = BASE + page + ".mdx"
+              result = subprocess.run(
+                  ["curl", "-sf", "--max-time", "30", url],
+                  capture_output=True,
+              )
+              if result.returncode != 0:
+                  print(f"WARNING: Failed to fetch {url}", file=sys.stderr)
+                  continue
+              h = hashlib.sha256(result.stdout).hexdigest()
+              lines.append(f"{h}  {page}")
+
+          print("\n".join(lines))
+          EOF
+
+      - name: Compare with stored hashes
+        id: compare
+        run: |
+          if diff docs-content-hashes.txt /tmp/hashes-latest.txt > /tmp/hashes-diff.txt 2>&1; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No content changes detected."
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "Content changes detected:"
+            cat /tmp/hashes-diff.txt
+          fi
+
+      - name: Update stored hashes file
+        if: steps.compare.outputs.changed == 'true'
+        run: cp /tmp/hashes-latest.txt docs-content-hashes.txt
+
+      - name: Build list of changed pages
+        if: steps.compare.outputs.changed == 'true'
+        id: changes
+        run: |
+          CHANGED=$(grep '^[<>]' /tmp/hashes-diff.txt | awk '{print $3}' | sort -u | sed 's/^/- /')
+          echo "pages<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGED" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Open PR
+        if: steps.compare.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@5e914681df9dc83aa4e4905692ca88beb2f9e91f  # v7.0.5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: sync/content-hashes
+          base: main
+          commit-message: "Update docs-content-hashes.txt"
+          title: "Rive docs content changed — review reference files"
+          body: |
+            The content of one or more monitored Rive documentation pages has changed. Review the curated reference files that cover these pages and update them if needed.
+
+            **Changed pages:**
+            ${{ steps.changes.outputs.pages }}
+
+            To find which reference file covers a changed page, look it up in `rive-reference/00-concept-map.md`.
