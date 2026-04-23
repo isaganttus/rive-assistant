@@ -37,3 +37,24 @@ Use the issue templates. For incorrect or outdated information, include a link t
 ## Pull requests
 
 Use the PR template. The key question for almost every PR: does `CLAUDE.md`'s routing table need updating?
+
+## Keeping tool context files in sync
+
+When `CLAUDE.md` is updated with new content (deprecation notices, routing rules, vocabulary), apply the same change to all tool context files:
+- `GEMINI.md` — identical to `CLAUDE.md`
+- `.cursor/rules/rive.mdc` — same content, no URL fetch instructions, with YAML frontmatter
+- `.windsurfrules` — same as Cursor file minus the frontmatter
+- `.github/copilot-instructions.md` — identical to `.windsurfrules` (except tool name in "cannot fetch" line)
+
+The four tool files share all content except the "Full source documentation" fetch instructions and the "If a fetch returns 404" section (omitted from non-fetching tools).
+
+## Adding recipes
+
+Recipes live in `rive-recipes/`. Each recipe covers one common task pattern end-to-end.
+
+When adding a recipe:
+- Follow the format in any existing recipe file (header → editor setup → runtime code → notes)
+- Verify all API calls against current source docs before committing
+- Default runtime code to JavaScript/TypeScript; note cross-platform differences inline
+- Keep it under 120 lines — if it's growing larger, it's probably two recipes
+- Fetch the relevant source docs page to verify API accuracy before writing code examples
