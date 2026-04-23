@@ -12,6 +12,8 @@ When editing:
 - Prefer condensing over expanding — remove redundancy rather than adding more prose
 - Source information from the [official Rive docs](https://github.com/rive-app/rive-docs)
 
+See `rive-reference/TEMPLATE.md` for the standard file structure, tone guidance, and length target.
+
 ## Updating the routing table in `CLAUDE.md`
 
 `CLAUDE.md` contains a routing table that maps Rive topics to specific documentation paths. If you add a new reference file or the Rive team reorganizes their docs, the routing table needs updating too.
