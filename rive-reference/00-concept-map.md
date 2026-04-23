@@ -1,10 +1,12 @@
 # Rive Concept Map
 
+> **How to use this file:** When asked about a Rive topic, find the row matching your topic. Read the **Reference File** first — it covers the concept. If you need exact API signatures or deeper detail, fetch the **Source path(s)** from the official Rive docs at `https://raw.githubusercontent.com/rive-app/rive-docs/main/<path>.mdx` (or read from `rive-docs/` if available locally).
+
 Master lookup table. Use this to find where information lives.
 
 ## Editor & Design
 
-| Topic | Reference File | Source MDX |
+| Topic | Reference File | Source path(s) — fetch for full API detail |
 |---|---|---|
 | Artboards (creation, sizing, origin, components) | 01-editor-fundamentals | `editor/fundamentals/artboards.mdx`, `editor/fundamentals/components.mdx` |
 | Components (nested artboards, instances, modes) | 01-editor-fundamentals | `editor/fundamentals/components.mdx` |
@@ -24,7 +26,7 @@ Master lookup table. Use this to find where information lives.
 
 ## Animation & Logic
 
-| Topic | Reference File | Source MDX |
+| Topic | Reference File | Source path(s) — fetch for full API detail |
 |---|---|---|
 | State Machines (graph, states, transitions) | 02-state-machines-and-events | `editor/state-machine/state-machine.mdx` |
 | States (entry, exit, any-state, animation, blend) | 02-state-machines-and-events | `editor/state-machine/states.mdx` |
@@ -40,7 +42,7 @@ Master lookup table. Use this to find where information lives.
 
 ## Data & Scripting
 
-| Topic | Reference File | Source MDX |
+| Topic | Reference File | Source path(s) — fetch for full API detail |
 |---|---|---|
 | Data Binding Overview (MVVM, view models) | 03-data-binding | `editor/data-binding/overview.mdx` |
 | View Model Properties (types, directions) | 03-data-binding | `editor/data-binding/overview.mdx` |
@@ -67,7 +69,7 @@ Master lookup table. Use this to find where information lives.
 
 ## Layouts
 
-| Topic | Reference File | Source MDX |
+| Topic | Reference File | Source path(s) — fetch for full API detail |
 |---|---|---|
 | Layouts Overview (responsive containers) | 04-layouts | `editor/layouts/overview.mdx` |
 | Layout Parameters (row/column, gap, alignment) | 04-layouts | `editor/layouts/layout-parameters.mdx` |
@@ -78,7 +80,7 @@ Master lookup table. Use this to find where information lives.
 
 ## App Runtimes
 
-| Topic | Reference File | Source MDX |
+| Topic | Reference File | Source path(s) — fetch for full API detail |
 |---|---|---|
 | Runtime Architecture (overview, renderer choice) | 06-runtimes-overview | `runtimes/getting-started.mdx`, `runtimes/choose-a-renderer/` |
 | Loading Assets (embedded, out-of-band) | 06-runtimes-overview | `runtimes/loading-assets.mdx` |
@@ -95,7 +97,7 @@ Master lookup table. Use this to find where information lives.
 
 ## Game Runtimes
 
-| Topic | Reference File | Source MDX |
+| Topic | Reference File | Source path(s) — fetch for full API detail |
 |---|---|---|
 | Unity (RivePanel, RiveScreen, data binding) | 09-game-runtimes | `game-runtimes/unity/` |
 | Unreal (plugin, Blueprints, data binding) | 09-game-runtimes | `game-runtimes/unreal/` |
@@ -103,7 +105,7 @@ Master lookup table. Use this to find where information lives.
 
 ## Cross-Cutting
 
-| Topic | Reference File | Source MDX |
+| Topic | Reference File | Source path(s) — fetch for full API detail |
 |---|---|---|
 | Best Practices (performance, assets, optimization) | 10-best-practices | `getting-started/best-practices.mdx` |
 | Getting Started / Introduction | 10-best-practices | `getting-started/introduction.mdx` |
