@@ -1,4 +1,5 @@
 # Rive Runtimes Overview Reference
+> Last verified: 2026-04-23
 
 ## Overview
 
