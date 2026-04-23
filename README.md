@@ -10,6 +10,8 @@ A Rive expert assistant for AI models. Drop it into any AI coding environment to
 
 - **`CLAUDE.md`** — System prompt / AI context file defining the assistant's role, Rive vocabulary, deprecation notices, and documentation routing rules
 - **`rive-reference/`** — 11 curated reference files covering every Rive domain (editor, state machines, data binding, layouts, scripting, all runtimes, best practices)
+- **`rive-recipes/`** — 10 code-first recipes for common Rive tasks
+- **`GEMINI.md`, `.cursor/rules/rive.mdc`, `.windsurfrules`, `.github/copilot-instructions.md`** — Native context files for Gemini CLI, Cursor, Windsurf, and GitHub Copilot
 
 The curated reference files handle the majority of questions. When exact API signatures are needed, the assistant fetches the relevant page directly from the [official Rive docs repository](https://github.com/rive-app/rive-docs) on GitHub.
 
@@ -43,13 +45,21 @@ git submodule update --remote
 
 ## Usage
 
-### AI coding tools
+Open the cloned folder as your working directory. Each supported tool picks up its context file automatically — no extra configuration needed.
 
-Open the cloned folder as your working directory. The `CLAUDE.md` file is picked up automatically as project context in Claude Code. For other tools (Cursor, Windsurf, Copilot Workspace, etc.), consult your tool's docs for how to load a custom rules or system prompt file, then point it at `CLAUDE.md`.
+| Tool | Context file | Notes |
+|---|---|---|
+| **Claude Code** | `CLAUDE.md` | Auto-loaded. Supports remote docs fetching. |
+| **Gemini CLI** | `GEMINI.md` | Auto-loaded. Supports remote docs fetching. |
+| **Cursor** | `.cursor/rules/rive.mdc` | Auto-loaded (`alwaysApply: true`). |
+| **Windsurf** | `.windsurfrules` | Auto-loaded from project root. |
+| **GitHub Copilot** | `.github/copilot-instructions.md` | Auto-loaded for Copilot Chat. |
 
-### Other AI tools
+**Claude Code and Gemini CLI** fetch official documentation pages on demand for exact API signatures. **Cursor, Windsurf, and Copilot** use the local `rive-reference/` files only — for exact API details, paste the relevant page from [rive-app/rive-docs](https://github.com/rive-app/rive-docs) into the conversation.
 
-Use the contents of `CLAUDE.md` as a system prompt, and make the `rive-reference/` files available to your tool as context or attachments.
+### Other tools
+
+Copy the contents of `CLAUDE.md` as a system prompt and make the `rive-reference/` directory available as context or attachments.
 
 ## What the assistant covers
 
@@ -65,7 +75,7 @@ Use the contents of `CLAUDE.md` as a system prompt, and make the `rive-reference
 
 The routing table in `CLAUDE.md` is kept in sync with the official Rive docs structure. When the Rive team reorganizes their docs, this repo gets updated automatically via a weekly check.
 
-To get the latest version, run `git pull` in your `rive-assistant` folder. If the assistant starts warning you that docs paths can't be found, that's a sign it's time to pull.
+To get the latest version, run `git pull` in your `rive-assistant` folder. Check the [Releases](../../releases) tab on GitHub for a summary of what changed in each update. If the assistant starts warning you that docs paths can't be found, that's a sign it's time to pull.
 
 **Watch this repo on GitHub** to get notified when updates are pushed — click the Watch button and choose "All activity" or "Releases only".
 

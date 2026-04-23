@@ -1,4 +1,5 @@
 # Rive Web & React Runtime Reference
+> Last verified: 2026-04-23
 
 ## Overview
 

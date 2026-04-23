@@ -67,29 +67,15 @@ For common task patterns ("how do I build a scrolling list?", "how do I trigger 
 
 ### Full source documentation
 
-When you need exact API signatures or details not in the reference files, read the full docs. Two modes are supported:
+GitHub Copilot cannot fetch remote URLs during a session. When the curated reference files do not contain sufficient detail, direct the user to the official Rive documentation at https://rive.app/docs, or ask them to paste the relevant page from https://github.com/rive-app/rive-docs into the conversation.
 
-**Default — fetch on demand:**
-Fetch pages directly from the official Rive docs repository on GitHub:
-```
-https://raw.githubusercontent.com/rive-app/rive-docs/main/<path>
-```
-Example: to read `editor/state-machine/listeners.mdx`, fetch:
-```
-https://raw.githubusercontent.com/rive-app/rive-docs/main/editor/state-machine/listeners.mdx
-```
-
-**Offline opt-in:**
-If the user cloned this repo with `--recurse-submodules`, the full docs are available locally at `rive-docs/`. Check for the existence of `rive-docs/` before fetching remotely — if it exists, read from there instead.
-
-The directory structure is the same in both cases:
+The docs are organized as:
 ```
 editor/           — Editor docs (fundamentals, state-machine, data-binding, layouts, constraints, text, events)
 runtimes/         — App runtimes (web/, react/, react-native/, flutter/, apple/, android/)
 game-runtimes/    — Game engines (unity/, unreal/, defold.mdx)
 scripting/        — Scripting API (protocols/, api-reference/, debugging/)
 getting-started/  — Introduction and best practices
-docs.json         — Full navigation structure
 ```
 
 ### Navigation rules
@@ -103,18 +89,6 @@ When you need to find where a topic lives, read `rive-reference/00-concept-map.m
 - For **concept questions**, check `rive-reference/` files first
 - Verify API signatures against source docs before writing code
 - For cross-platform questions, cover the general pattern first, then platform specifics
-
-### If a fetch returns 404
-
-Fetch `docs.json` from the root to discover the correct path:
-```
-https://raw.githubusercontent.com/rive-app/rive-docs/main/docs.json
-```
-Search the `pages` arrays for the topic, then construct the correct URL with the path found there.
-
-If **3 or more** fetches in a session return 404 (even after consulting `docs.json`), warn the user:
-
-> Several documentation paths couldn't be found. The routing table in this repo may be out of date with the current Rive docs structure. Consider running `git pull` in your `rive-assistant` folder to get the latest version.
 
 ### Important: Always verify code against source docs
 
