@@ -1,5 +1,6 @@
 # Rive Concept Map
 > Last verified: 2026-04-23
+> Source docs: `editor/`, `runtimes/`, `game-runtimes/`, `getting-started/`, `scripting/`, `feature-support.mdx`
 
 > **How to use this file:** When asked about a Rive topic, find the row matching your topic. Read the **Reference File** first — it covers the concept. If you need exact API signatures or deeper detail, fetch the **Source path(s)** from the official Rive docs at `https://raw.githubusercontent.com/rive-app/rive-docs/main/<path>.mdx` (or read from initialized local docs when `rive-docs/docs.json` exists).
 

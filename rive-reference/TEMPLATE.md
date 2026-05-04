@@ -1,12 +1,11 @@
 # [Domain Name] Reference
 
 > Last verified: YYYY-MM-DD
+> Source docs: `path/to/section/`
 
 ## Overview
 
-One paragraph covering what this domain does and its relationship to other Rive systems. Include the source docs path:
-
-**Source docs**: `path/to/section/` directory in the Rive docs.
+One paragraph covering what this domain does and its relationship to other Rive systems.
 
 ## [Main Concept or System]
 

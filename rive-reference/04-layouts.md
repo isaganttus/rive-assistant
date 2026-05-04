@@ -1,13 +1,12 @@
 # Rive Layouts Reference
 > Last verified: 2026-04-23
+> Source docs: `editor/layouts/`
 
 ## Overview
 
 Layouts build responsive UI in Rive using rules-based row/column containers instead of freeform positioning. They adapt to content size, text changes, and screen dimensions.
 
 **Key insight**: Layouts only affect the position of other Layouts. Non-layout Rive objects inside a layout can animate independently.
-
-**Source docs**: `editor/layouts/`
 
 ## Absolute vs. Relative Positioning
 

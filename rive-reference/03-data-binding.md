@@ -1,13 +1,12 @@
 # Rive Data Binding Reference
 > Last verified: 2026-04-23
+> Source docs: `editor/data-binding/`, `runtimes/web/data-binding.mdx`, `runtimes/react/data-binding.mdx`
 
 ## Overview
 
 Data Binding is Rive's modern reactive system using the **MVVM pattern** (Model-View-ViewModel). It creates a "contract" between designers and developers, decoupling design from code.
 
 **This replaces legacy Inputs and Events for all new work.**
-
-**Source docs**: `editor/data-binding/` and platform runtime data binding pages such as `runtimes/web/data-binding.mdx` and `runtimes/react/data-binding.mdx`
 
 ## Core Entities
 
