@@ -57,7 +57,7 @@ function Player() {
 - String: `vm.string("name").value = "hello"`
 - Trigger: `vm.trigger("name").fire()`
 
-> **API note:** Verify exact method names against `runtimes/data-binding.mdx` and your platform's runtime docs.
+> **API note:** Verify exact method names against `runtimes/react/data-binding.mdx` and your platform's runtime docs.
 
 ## Notes
 

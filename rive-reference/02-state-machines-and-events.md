@@ -110,7 +110,7 @@ Audio can also be triggered programmatically using the `Audio` global scripting 
 - `Context:audio(name)` — get a handle to an audio asset
 - `Audio:play*()` — play audio, returns an `AudioSound` instance
 - `AudioSound` methods: `play()`, `pause()`, `resume()`, `stop()`, `seek(seconds)`, `volume`
-- Source docs: `scripting/api-reference/interfaces/audio-source`, `scripting/api-reference/interfaces/audio-sound`
+- Source docs: `scripting/api-reference/interfaces/audio-source.mdx`, `scripting/api-reference/interfaces/audio-sound.mdx`
 
 ## Inputs — DEPRECATED
 

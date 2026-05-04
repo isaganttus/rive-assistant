@@ -45,7 +45,7 @@ fetch("/images/hero-v2.webp")
   .then((buf) => imageAsset.decode(new Uint8Array(buf)));
 ```
 
-> **API note:** Verify `asset.decode()`, `rive.assets`, and `assetLoader` signature against `runtimes/loading-assets.mdx` and `runtimes/web/web-js.mdx`.
+> **API note:** Verify `asset.decode()`, `rive.assets`, and `assetLoader` signature against `runtimes/web/loading-assets.mdx` and `runtimes/web/web-js.mdx`.
 
 ## Notes
 

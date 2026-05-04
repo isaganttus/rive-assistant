@@ -5,7 +5,7 @@
 
 Runtimes are platform-specific libraries that load .riv files and render them natively. All runtimes share a common pattern: load file, select artboard, set up state machine, bind data, handle events.
 
-**Source docs**: `runtimes/getting-started.mdx`, `runtimes/choose-a-renderer/`, `runtimes/loading-assets.mdx`, `runtimes/caching.mdx`, `runtimes/state-machines.mdx`, `runtimes/data-binding.mdx`
+**Source docs**: `runtimes/getting-started.mdx`, `runtimes/choose-a-renderer/`, and platform runtime pages such as `runtimes/web/loading-assets.mdx`, `runtimes/web/caching-a-rive-file.mdx`, `runtimes/web/state-machines.mdx`, and `runtimes/web/data-binding.mdx`
 
 ## Official Runtimes
 
@@ -87,7 +87,7 @@ Modern runtimes provide APIs for the Data Binding system:
 - **Subscribe to changes**: listen for property updates
 - **Work with lists**: add, remove, update items dynamically
 
-**For platform-specific API details**: See the platform runtime reference files (07, 08, 09) and `runtimes/data-binding.mdx`.
+**For platform-specific API details**: See the platform runtime reference files (07, 08, 09) and the data binding page for your runtime, such as `runtimes/web/data-binding.mdx` or `runtimes/react/data-binding.mdx`.
 
 ## Web Package Variants
 
@@ -108,4 +108,4 @@ Not all features are available on all platforms/renderers. Key things to check:
 - Scripting support
 - Layout support
 
-**For the full matrix**: See `runtimes/feature-support.mdx` in source docs.
+**For the full matrix**: See `feature-support.mdx` in source docs.

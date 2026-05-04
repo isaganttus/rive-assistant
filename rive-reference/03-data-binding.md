@@ -7,7 +7,7 @@ Data Binding is Rive's modern reactive system using the **MVVM pattern** (Model-
 
 **This replaces legacy Inputs and Events for all new work.**
 
-**Source docs**: `editor/data-binding/` and `runtimes/data-binding.mdx`
+**Source docs**: `editor/data-binding/` and platform runtime data binding pages such as `runtimes/web/data-binding.mdx` and `runtimes/react/data-binding.mdx`
 
 ## Core Entities
 
@@ -109,7 +109,7 @@ All runtimes provide APIs for:
 - Working with lists (add, remove, update items)
 - Enumerating available properties
 
-**For platform-specific API details**: See `runtimes/data-binding.mdx` and platform-specific runtime docs.
+**For platform-specific API details**: See the data binding page for your runtime, such as `runtimes/web/data-binding.mdx`, `runtimes/react/data-binding.mdx`, `runtimes/flutter/data-binding.mdx`, `runtimes/apple/data-binding.mdx`, `runtimes/android/data-binding.mdx`, or `runtimes/react-native/data-binding.mdx`.
 
 ## Best Practices
 

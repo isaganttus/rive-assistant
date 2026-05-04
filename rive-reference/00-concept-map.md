@@ -1,7 +1,7 @@
 # Rive Concept Map
 > Last verified: 2026-04-23
 
-> **How to use this file:** When asked about a Rive topic, find the row matching your topic. Read the **Reference File** first — it covers the concept. If you need exact API signatures or deeper detail, fetch the **Source path(s)** from the official Rive docs at `https://raw.githubusercontent.com/rive-app/rive-docs/main/<path>.mdx` (or read from `rive-docs/` if available locally).
+> **How to use this file:** When asked about a Rive topic, find the row matching your topic. Read the **Reference File** first — it covers the concept. If you need exact API signatures or deeper detail, fetch the **Source path(s)** from the official Rive docs at `https://raw.githubusercontent.com/rive-app/rive-docs/main/<path>.mdx` (or read from initialized local docs when `rive-docs/docs.json` exists).
 
 Master lookup table. Use this to find where information lives.
 
@@ -11,15 +11,15 @@ Master lookup table. Use this to find where information lives.
 |---|---|---|
 | Artboards (creation, sizing, origin, components) | 01-editor-fundamentals | `editor/fundamentals/artboards.mdx`, `editor/fundamentals/components.mdx` |
 | Components (nested artboards, instances, modes) | 01-editor-fundamentals | `editor/fundamentals/components.mdx` |
-| Groups, Solos, Draw Order | 01-editor-fundamentals | `editor/fundamentals/groups.mdx`, `editor/fundamentals/solos.mdx` |
-| Shapes, Paths, Pen Tool | 01-editor-fundamentals | `editor/fundamentals/shapes-and-paths.mdx`, `editor/manipulating-shapes/pen-tool.mdx` |
+| Groups, Solos, Draw Order | 01-editor-fundamentals | `editor/fundamentals/groups.mdx`, `editor/manipulating-shapes/solos.mdx` |
+| Shapes, Paths, Pen Tool | 01-editor-fundamentals | `editor/fundamentals/shapes-and-paths-overview.mdx`, `editor/fundamentals/pen-tool-overview.mdx` |
 | Fill, Stroke, Gradients, Feathering | 01-editor-fundamentals | `editor/fundamentals/fill-and-stroke.mdx` |
-| Procedural Shapes (rect, ellipse, polygon, star) | 01-editor-fundamentals | `editor/manipulating-shapes/procedural-shapes.mdx` |
-| Boolean Operations | 01-editor-fundamentals | `editor/manipulating-shapes/boolean-operations.mdx` |
-| Bones & Meshes (skeletal rigging) | 01-editor-fundamentals | `editor/fundamentals/bones.mdx` |
-| Text (runs, styles, modifiers, fonts) | 01-editor-fundamentals | `editor/text/overview.mdx`, `editor/text/` |
+| Procedural Shapes (rect, ellipse, polygon, star) | 01-editor-fundamentals | `editor/fundamentals/procedural-shapes.mdx` |
+| Boolean Operations | 01-editor-fundamentals | `editor/manipulating-shapes/manipulating-shapes.mdx` |
+| Bones & Meshes (skeletal rigging) | 01-editor-fundamentals | `editor/manipulating-shapes/bones.mdx`, `editor/manipulating-shapes/meshes.mdx` |
+| Text (runs, styles, modifiers, fonts) | 01-editor-fundamentals | `editor/text/text-overview.mdx`, `editor/text/` |
 | Constraints (IK, distance, transform, follow-path, scroll) | 01-editor-fundamentals | `editor/constraints/` |
-| Joysticks | 01-editor-fundamentals | `editor/fundamentals/joysticks.mdx` |
+| Joysticks | 01-editor-fundamentals | `editor/manipulating-shapes/joysticks.mdx` |
 | Importing Assets (SVG, images, Lottie) | 01-editor-fundamentals | `editor/fundamentals/importing-assets.mdx` |
 | Exporting (.riv, video, backup) | 01-editor-fundamentals | `editor/exporting/` |
 | Libraries (shared assets across files) | 01-editor-fundamentals | `editor/libraries.mdx` |
@@ -51,7 +51,7 @@ Master lookup table. Use this to find where information lives.
 | Lists (dynamic content, artboard lists) | 03-data-binding | `editor/data-binding/lists.mdx` |
 | Converters (type transformation) | 03-data-binding | `editor/data-binding/overview.mdx` |
 | Enumerations | 03-data-binding | `editor/data-binding/overview.mdx` |
-| Data Binding at Runtime | 03-data-binding | `runtimes/data-binding.mdx` |
+| Data Binding at Runtime | 03-data-binding | `runtimes/web/data-binding.mdx`, `runtimes/react/data-binding.mdx`, `runtimes/flutter/data-binding.mdx`, `runtimes/apple/data-binding.mdx`, `runtimes/android/data-binding.mdx`, `runtimes/react-native/data-binding.mdx` |
 | Scripting Overview (Luau, getting started) | 05-scripting | `scripting/getting-started.mdx` |
 | Creating Scripts | 05-scripting | `scripting/creating-scripts.mdx` |
 | Node Scripts (draw, advance, init) | 05-scripting | `scripting/protocols/node-scripts.mdx` |
@@ -72,29 +72,29 @@ Master lookup table. Use this to find where information lives.
 
 | Topic | Reference File | Source path(s) — fetch for full API detail |
 |---|---|---|
-| Layouts Overview (responsive containers) | 04-layouts | `editor/layouts/overview.mdx` |
+| Layouts Overview (responsive containers) | 04-layouts | `editor/layouts/layouts-overview.mdx` |
 | Layout Parameters (row/column, gap, alignment) | 04-layouts | `editor/layouts/layout-parameters.mdx` |
 | Scale Types (fixed, hug, fill) | 04-layouts | `editor/layouts/layout-parameters.mdx` |
 | N-Slicing (corner preservation) | 04-layouts | `editor/layouts/n-slicing.mdx` |
 | Scrolling (scroll view, scroll bar, physics) | 04-layouts | `editor/layouts/scrolling.mdx` |
-| Layout Styles | 04-layouts | `editor/layouts/styles.mdx` |
+| Layout Styles | 04-layouts | `editor/layouts/layout-styles.mdx` |
 
 ## App Runtimes
 
 | Topic | Reference File | Source path(s) — fetch for full API detail |
 |---|---|---|
 | Runtime Architecture (overview, renderer choice) | 06-runtimes-overview | `runtimes/getting-started.mdx`, `runtimes/choose-a-renderer/` |
-| Loading Assets (embedded, out-of-band) | 06-runtimes-overview | `runtimes/loading-assets.mdx` |
-| Caching .riv files | 06-runtimes-overview | `runtimes/caching.mdx` |
-| Feature Support Matrix | 06-runtimes-overview | `runtimes/feature-support.mdx` |
+| Loading Assets (embedded, out-of-band) | 06-runtimes-overview | `runtimes/web/loading-assets.mdx`, `runtimes/react/loading-assets.mdx`, `runtimes/flutter/loading-assets.mdx`, `runtimes/apple/loading-assets.mdx`, `runtimes/android/loading-assets.mdx`, `runtimes/react-native/loading-assets.mdx` |
+| Caching .riv files | 06-runtimes-overview | `runtimes/web/caching-a-rive-file.mdx`, `runtimes/react/caching-a-rive-file.mdx`, `runtimes/flutter/caching-a-rive-file.mdx`, `runtimes/apple/caching-a-rive-file.mdx`, `runtimes/android/caching-a-rive-file.mdx`, `runtimes/react-native/caching-a-rive-file.mdx` |
+| Feature Support Matrix | 06-runtimes-overview | `feature-support.mdx` |
 | Web JS Runtime | 07-web-react-runtime | `runtimes/web/` |
 | React Runtime (useRive, RiveComponent) | 07-web-react-runtime | `runtimes/react/` |
 | Flutter Runtime | 08-mobile-runtimes | `runtimes/flutter/` |
 | Apple/iOS Runtime (SwiftUI, UIKit) | 08-mobile-runtimes | `runtimes/apple/` |
 | Android Runtime (Kotlin, Compose) | 08-mobile-runtimes | `runtimes/android/` |
 | React Native Runtime | 08-mobile-runtimes | `runtimes/react-native/` |
-| Runtime Data Binding API | 06-runtimes-overview | `runtimes/data-binding.mdx` |
-| Runtime State Machine Control | 06-runtimes-overview | `runtimes/state-machines.mdx` |
+| Runtime Data Binding API | 06-runtimes-overview | `runtimes/web/data-binding.mdx`, `runtimes/react/data-binding.mdx`, `runtimes/flutter/data-binding.mdx`, `runtimes/apple/data-binding.mdx`, `runtimes/android/data-binding.mdx`, `runtimes/react-native/data-binding.mdx` |
+| Runtime State Machine Control | 06-runtimes-overview | `runtimes/web/state-machines.mdx`, `runtimes/react/state-machines.mdx`, `runtimes/flutter/state-machines.mdx`, `runtimes/apple/state-machines.mdx`, `runtimes/android/state-machines.mdx`, `runtimes/react-native/state-machines.mdx` |
 
 ## Game Runtimes
 

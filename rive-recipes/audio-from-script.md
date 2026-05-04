@@ -64,7 +64,7 @@ s.volume = 0.5
 
 - `context:audio("name")` — name must match the asset name in the Assets Panel exactly.
 - Play methods: `play()` (loops), `playOnce()` (fires once, auto-releases), `playFrom(seconds)`.
-- Source docs: `scripting/api-reference/interfaces/audio-source`, `scripting/api-reference/interfaces/audio-sound`.
+- Source docs: `scripting/api-reference/interfaces/audio-source.mdx`, `scripting/api-reference/interfaces/audio-sound.mdx`.
 - **Audio Events** (non-scripting): add an Audio Event to a timeline keyframe or state machine transition — simpler for static sound cues.
 - Web Audio API autoplay policy requires a user gesture before the first audio call.
-- Not all runtimes support all audio features — check `runtimes/feature-support.mdx` for your platform.
+- Not all runtimes support all audio features — check `feature-support.mdx` for your platform.

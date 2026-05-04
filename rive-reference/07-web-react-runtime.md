@@ -116,7 +116,7 @@ boolInput.value = true;
 ```
 
 ### Modern: Data Binding (View Models)
-Use the runtime Data Binding API to get/set view model instance properties. See `runtimes/data-binding.mdx` for detailed API.
+Use the runtime Data Binding API to get/set view model instance properties. See `runtimes/web/data-binding.mdx` and `runtimes/react/data-binding.mdx` for detailed API.
 
 ## Asset Loading
 

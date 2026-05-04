@@ -187,7 +187,7 @@ self.enemy:pointerDown(localEvent)
 | Reactive | Property, PropertyTrigger, Listener | Reactive data and events |
 | Collections | PropertyList, PropertyEnum | Lists and enumerations |
 
-**For exact method signatures**: Read `scripting/api-reference/**/*.mdx` in source docs.
+**For exact method signatures**: Read the relevant page under `scripting/api-reference/` in source docs.
 
 ## Drawing Essentials
 

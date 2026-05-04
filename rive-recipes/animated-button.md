@@ -48,7 +48,7 @@ function Button({ disabled = false }: { disabled?: boolean }) {
 }
 ```
 
-> **API note:** Verify `rive.viewModelInstance` and `.boolean(name).value` against `runtimes/data-binding.mdx`.
+> **API note:** Verify `rive.viewModelInstance` and `.boolean(name).value` against `runtimes/react/data-binding.mdx`.
 
 ## Notes
 

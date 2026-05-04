@@ -50,7 +50,7 @@ const r = new rive.Rive({
 });
 ```
 
-> **API note:** Verify `viewModelInstance`, `.string(name).value` against `runtimes/data-binding.mdx`.
+> **API note:** Verify `viewModelInstance`, `.string(name).value` against `runtimes/react/data-binding.mdx`.
 
 ## Notes
 
