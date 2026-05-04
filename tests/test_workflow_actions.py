@@ -43,6 +43,11 @@ class WorkflowActionsTest(unittest.TestCase):
 
         self.assertEqual(checked_actions, set(NODE24_ACTION_PINS))
 
+    def test_validate_workflow_runs_tool_context_sync_check(self):
+        workflow = (WORKFLOW_DIR / "validate-doc-paths.yml").read_text(encoding="utf-8")
+
+        self.assertIn("python3 scripts/validate_tool_context_sync.py", workflow)
+
 
 if __name__ == "__main__":
     unittest.main()

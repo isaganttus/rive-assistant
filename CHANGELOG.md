@@ -12,6 +12,7 @@ Format: `[Unreleased]` at top, then dated entries in reverse chronological order
 - Docs path validation script and GitHub Action to catch stale official Rive docs references.
 - `AGENTS.md` for native Codex repo instructions.
 - Onboarding documentation tests for supported AI tool setup.
+- Tool context sync validator to catch drift across Codex, Claude Code, Gemini, Cursor, Windsurf, and Copilot instructions.
 
 ### Changed
 - Updated concept-map and recipe source links to match current `docs-paths.txt`.

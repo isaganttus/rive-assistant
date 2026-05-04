@@ -39,6 +39,7 @@ class OnboardingDocsTest(unittest.TestCase):
 
         self.assertIn("`AGENTS.md`", contributing)
         self.assertIn("Codex", contributing)
+        self.assertIn("python3 scripts/validate_tool_context_sync.py", contributing)
 
 
 if __name__ == "__main__":

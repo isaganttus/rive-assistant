@@ -51,6 +51,8 @@ When `CLAUDE.md` is updated with new content (deprecation notices, routing rules
 
 The tool files share all content except the "Full source documentation" fetch instructions and the "If a fetch returns 404" section (omitted from non-fetching tools).
 
+Run `python3 scripts/validate_tool_context_sync.py` before opening a PR that changes any tool context file. The validator checks shared headings, required assistant guidance, and Rive vocabulary terms across all supported tool files.
+
 ## Adding recipes
 
 Recipes live in `rive-recipes/`. Each recipe covers one common task pattern end-to-end.
