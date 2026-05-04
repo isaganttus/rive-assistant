@@ -40,6 +40,10 @@ Use the issue templates. For incorrect or outdated information, include a link t
 
 Use the PR template. The key question for almost every PR: does `rive-reference/00-concept-map.md` need updating?
 
+## Releases
+
+Release instructions live in `docs/releasing.md`. If a PR prepares a release, follow the release checklist before tagging and publishing.
+
 ## Keeping tool context files in sync
 
 When `CLAUDE.md` is updated with new content (deprecation notices, routing rules, vocabulary), apply the same change to all tool context files:

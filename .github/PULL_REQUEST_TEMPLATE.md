@@ -13,6 +13,7 @@
 - [ ] `python3 scripts/validate_tool_context_sync.py` passes
 - [ ] `python3 scripts/validate_answer_evals.py` passes
 - [ ] Submodule pointer updated if `rive-docs/` was bumped
+- [ ] Release checklist reviewed if this PR prepares a release
 
 ## Source
 

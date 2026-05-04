@@ -114,7 +114,9 @@ python3 scripts/validate_answer_evals.py
 
 The concept map in `rive-reference/00-concept-map.md` is kept in sync with the official Rive docs structure. When the Rive team reorganizes their docs, this repo gets updated automatically via a weekly check.
 
-To get the latest version, run `git pull` in your `rive-assistant` folder. Check the [Releases](../../releases) tab on GitHub for a summary of what changed in each update. If the assistant starts warning you that docs paths can't be found, that's a sign it's time to pull.
+Use `main` for the freshest Rive docs tracking. To update, run `git pull` in your `rive-assistant` folder. If the assistant starts warning you that docs paths can't be found, that's a sign it's time to pull.
+
+Use tagged releases for stable assistant snapshots. Check the [Releases](../../releases) tab on GitHub for a summary of what changed in each update. Maintainers should follow [docs/releasing.md](docs/releasing.md) when cutting a release.
 
 **Watch this repo on GitHub** to get notified when updates are pushed — click the Watch button and choose "All activity" or "Releases only".
 

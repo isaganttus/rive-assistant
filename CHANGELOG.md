@@ -14,6 +14,7 @@ Format: `[Unreleased]` at top, then dated entries in reverse chronological order
 - Onboarding documentation tests for supported AI tool setup.
 - Tool context sync validator to catch drift across Codex, Claude Code, Gemini, Cursor, Windsurf, and Copilot instructions.
 - Answer-quality eval cases and validator for representative Rive assistant questions.
+- Release process documentation for date-based tags and validation requirements.
 
 ### Changed
 - Updated concept-map and recipe source links to match current `docs-paths.txt`.
