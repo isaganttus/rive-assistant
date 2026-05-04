@@ -11,7 +11,7 @@ Describe the incorrect or outdated information, broken URL, or misbehavior.
 
 **Where is it?**
 - [ ] A reference file (`rive-reference/`)
-- [ ] The routing table in `CLAUDE.md`
+- [ ] The concept map in `rive-reference/00-concept-map.md`
 - [ ] A documentation URL that 404s
 - [ ] Something else
 

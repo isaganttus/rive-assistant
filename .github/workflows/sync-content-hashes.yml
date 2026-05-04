@@ -41,6 +41,7 @@ jobs:
           ])
 
           lines = []
+          failures = []
           for page in PAGES:
               url = BASE + page + ".mdx"
               result = subprocess.run(
@@ -49,9 +50,16 @@ jobs:
               )
               if result.returncode != 0:
                   print(f"WARNING: Failed to fetch {url}", file=sys.stderr)
+                  failures.append(url)
                   continue
               h = hashlib.sha256(result.stdout).hexdigest()
               lines.append(f"{h}  {page}")
+
+          if failures:
+              print("Failed to fetch monitored docs pages:", file=sys.stderr)
+              for url in failures:
+                  print(f"- {url}", file=sys.stderr)
+              sys.exit(1)
 
           print("\n".join(lines))
           EOF

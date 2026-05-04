@@ -6,8 +6,9 @@
 
 - [ ] Reference files edited are in `rive-reference/`
 - [ ] Information is sourced from official Rive docs (link below)
-- [ ] `CLAUDE.md` routing table updated if new files were added or paths changed
+- [ ] `rive-reference/00-concept-map.md` updated if new files were added or paths changed
 - [ ] `docs-paths.txt` not manually edited (it's auto-generated)
+- [ ] `python3 scripts/validate_doc_paths.py` passes
 - [ ] Submodule pointer updated if `rive-docs/` was bumped
 
 ## Source

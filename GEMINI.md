@@ -80,7 +80,7 @@ https://raw.githubusercontent.com/rive-app/rive-docs/main/editor/state-machine/l
 ```
 
 **Offline opt-in:**
-If the user cloned this repo with `--recurse-submodules`, the full docs are available locally at `rive-docs/`. Check for the existence of `rive-docs/` before fetching remotely — if it exists, read from there instead.
+If the user cloned this repo with `--recurse-submodules`, the full docs are available locally at `rive-docs/`. Before fetching remotely, check whether the submodule is initialized by confirming `rive-docs/docs.json` exists. If that file exists, read from `rive-docs/`; if it does not, fetch remotely.
 
 The directory structure is the same in both cases:
 ```
@@ -114,7 +114,7 @@ Search the `pages` arrays for the topic, then construct the correct URL with the
 
 If **3 or more** fetches in a session return 404 (even after consulting `docs.json`), warn the user:
 
-> Several documentation paths couldn't be found. The routing table in this repo may be out of date with the current Rive docs structure. Consider running `git pull` in your `rive-assistant` folder to get the latest version.
+> Several documentation paths couldn't be found. The concept map in this repo may be out of date with the current Rive docs structure. Consider running `git pull` in your `rive-assistant` folder to get the latest version.
 
 ### Important: Always verify code against source docs
 

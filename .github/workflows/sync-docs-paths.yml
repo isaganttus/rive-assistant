@@ -79,11 +79,11 @@ jobs:
           branch: sync/docs-paths
           base: main
           commit-message: "Update docs-paths.txt from rive-app/rive-docs"
-          title: "Rive docs structure changed — review routing table"
+          title: "Rive docs structure changed — review concept map"
           body: |
             The official [rive-app/rive-docs](https://github.com/rive-app/rive-docs) repository has changed its page structure.
 
-            Review the diff below and update the routing table in `CLAUDE.md` if any paths referenced there have been renamed or removed.
+            Review the diff below and update `rive-reference/00-concept-map.md` if any paths referenced there have been renamed or removed.
 
             <details>
             <summary>Path diff</summary>

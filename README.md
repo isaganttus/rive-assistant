@@ -3,6 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Last commit](https://img.shields.io/github/last-commit/isaganttus/rive-assistant)](https://github.com/isaganttus/rive-assistant/commits/main)
 [![Sync docs paths](https://github.com/isaganttus/rive-assistant/actions/workflows/sync-docs-paths.yml/badge.svg)](https://github.com/isaganttus/rive-assistant/actions/workflows/sync-docs-paths.yml)
+[![Validate docs references](https://github.com/isaganttus/rive-assistant/actions/workflows/validate-doc-paths.yml/badge.svg)](https://github.com/isaganttus/rive-assistant/actions/workflows/validate-doc-paths.yml)
 
 A Rive expert assistant for AI models. Drop it into any AI coding environment to get a context-aware Rive co-pilot that can help you plan projects, write Luau scripts, navigate runtimes, and answer technical questions — always grounded in the official Rive documentation.
 
@@ -35,7 +36,7 @@ If you want the full docs available locally (faster lookups, works without inter
 git clone --recurse-submodules https://github.com/isaganttus/rive-assistant.git
 ```
 
-The assistant will automatically use the local `rive-docs/` folder instead of fetching from GitHub.
+The assistant will use the local `rive-docs/` folder instead of fetching from GitHub when the submodule is initialized and `rive-docs/docs.json` exists.
 
 To keep the local docs up to date:
 
@@ -73,7 +74,7 @@ Copy the contents of `CLAUDE.md` as a system prompt and make the `rive-reference
 
 ## Staying up to date
 
-The routing table in `CLAUDE.md` is kept in sync with the official Rive docs structure. When the Rive team reorganizes their docs, this repo gets updated automatically via a weekly check.
+The concept map in `rive-reference/00-concept-map.md` is kept in sync with the official Rive docs structure. When the Rive team reorganizes their docs, this repo gets updated automatically via a weekly check.
 
 To get the latest version, run `git pull` in your `rive-assistant` folder. Check the [Releases](../../releases) tab on GitHub for a summary of what changed in each update. If the assistant starts warning you that docs paths can't be found, that's a sign it's time to pull.
 

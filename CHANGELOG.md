@@ -8,6 +8,14 @@ Format: `[Unreleased]` at top, then dated entries in reverse chronological order
 
 ## [Unreleased]
 
+### Added
+- Docs path validation script and GitHub Action to catch stale official Rive docs references.
+
+### Changed
+- Updated concept-map and recipe source links to match current `docs-paths.txt`.
+- Offline docs instructions now require initialized submodule content (`rive-docs/docs.json`) before using local docs.
+- Content hash workflow now fails on fetch errors instead of opening partial update PRs.
+
 ---
 
 ## [2026-04-23]
