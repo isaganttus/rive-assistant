@@ -11,8 +11,11 @@ When editing:
 - Keep examples minimal and illustrative
 - Prefer condensing over expanding — remove redundancy rather than adding more prose
 - Source information from the [official Rive docs](https://github.com/rive-app/rive-docs)
+- Keep the top-of-file `Last verified` and `Source docs` metadata current
 
 See `rive-reference/TEMPLATE.md` for the standard file structure, tone guidance, and length target.
+
+Run `python3 scripts/validate_reference_metadata.py` before opening a PR that changes `rive-reference/`. The validator checks `Last verified` dates, Source docs metadata, and whether metadata paths still exist in `docs-paths.txt`.
 
 ## Updating the concept map
 

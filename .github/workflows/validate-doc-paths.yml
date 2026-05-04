@@ -19,6 +19,9 @@ jobs:
       - name: Validate Rive docs source paths
         run: python3 scripts/validate_doc_paths.py
 
+      - name: Validate reference metadata
+        run: python3 scripts/validate_reference_metadata.py
+
       - name: Validate tool context sync
         run: python3 scripts/validate_tool_context_sync.py
 

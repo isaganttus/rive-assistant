@@ -53,6 +53,11 @@ class WorkflowActionsTest(unittest.TestCase):
 
         self.assertIn("python3 scripts/validate_answer_evals.py", workflow)
 
+    def test_validate_workflow_runs_reference_metadata_check(self):
+        workflow = (WORKFLOW_DIR / "validate-doc-paths.yml").read_text(encoding="utf-8")
+
+        self.assertIn("python3 scripts/validate_reference_metadata.py", workflow)
+
 
 if __name__ == "__main__":
     unittest.main()

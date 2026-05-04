@@ -48,6 +48,12 @@ class OnboardingDocsTest(unittest.TestCase):
         self.assertIn("evals/cases/", contributing)
         self.assertIn("python3 scripts/validate_answer_evals.py", contributing)
 
+    def test_contributing_mentions_reference_metadata_validation(self):
+        contributing = self.read("CONTRIBUTING.md")
+
+        self.assertIn("Source docs metadata", contributing)
+        self.assertIn("python3 scripts/validate_reference_metadata.py", contributing)
+
 
 if __name__ == "__main__":
     unittest.main()
