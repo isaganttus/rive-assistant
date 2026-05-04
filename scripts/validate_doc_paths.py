@@ -20,6 +20,7 @@ DOC_ROOTS = (
 )
 
 DEFAULT_FILES = (
+    "AGENTS.md",
     "CLAUDE.md",
     "GEMINI.md",
     ".cursor/rules/rive.mdc",

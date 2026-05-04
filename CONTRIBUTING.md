@@ -43,12 +43,13 @@ Use the PR template. The key question for almost every PR: does `rive-reference/
 ## Keeping tool context files in sync
 
 When `CLAUDE.md` is updated with new content (deprecation notices, routing rules, vocabulary), apply the same change to all tool context files:
+- `AGENTS.md` — Codex context file, same content adapted for Codex
 - `GEMINI.md` — identical to `CLAUDE.md`
 - `.cursor/rules/rive.mdc` — same content, no URL fetch instructions, with YAML frontmatter
 - `.windsurfrules` — same as Cursor file minus the frontmatter
 - `.github/copilot-instructions.md` — identical to `.windsurfrules` (except tool name in "cannot fetch" line)
 
-The four tool files share all content except the "Full source documentation" fetch instructions and the "If a fetch returns 404" section (omitted from non-fetching tools).
+The tool files share all content except the "Full source documentation" fetch instructions and the "If a fetch returns 404" section (omitted from non-fetching tools).
 
 ## Adding recipes
 

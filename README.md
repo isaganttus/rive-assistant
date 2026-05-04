@@ -5,16 +5,31 @@
 [![Sync docs paths](https://github.com/isaganttus/rive-assistant/actions/workflows/sync-docs-paths.yml/badge.svg)](https://github.com/isaganttus/rive-assistant/actions/workflows/sync-docs-paths.yml)
 [![Validate docs references](https://github.com/isaganttus/rive-assistant/actions/workflows/validate-doc-paths.yml/badge.svg)](https://github.com/isaganttus/rive-assistant/actions/workflows/validate-doc-paths.yml)
 
-A Rive expert assistant for AI models. Drop it into any AI coding environment to get a context-aware Rive co-pilot that can help you plan projects, write Luau scripts, navigate runtimes, and answer technical questions — always grounded in the official Rive documentation.
+A Rive expert assistant for AI models. Drop it into an AI coding environment to get a context-aware Rive co-pilot for building with Rive: project planning, Luau scripting, runtime integration, and technical answers grounded in the official Rive documentation.
+
+## What this repo is
+
+- An open source AI context pack for Rive development workflows
+- A curated reference layer over the official Rive docs
+- A set of code-first recipes for common editor, scripting, and runtime tasks
+- Native instruction files for popular AI coding tools
+
+## What this repo is not
+
+- Not an official Rive project unless explicitly adopted by Rive
+- Not a replacement for the official docs at [rive.app/docs](https://rive.app/docs)
+- Not a runtime package, app template, or `.riv` asset library
+- Not broad product support for account/admin/community docs
 
 ## What's included
 
-- **`CLAUDE.md`** — System prompt / AI context file defining the assistant's role, Rive vocabulary, deprecation notices, and documentation routing rules
-- **`rive-reference/`** — 11 curated reference files covering every Rive domain (editor, state machines, data binding, layouts, scripting, all runtimes, best practices)
+- **`AGENTS.md`** — Codex context file defining the assistant's role, Rive vocabulary, deprecation notices, and documentation routing rules
+- **`CLAUDE.md`** — Claude Code context file with the same Rive assistant behavior
+- **`rive-reference/`** — 11 curated reference files covering common building-with-Rive domains: editor, state machines, data binding, layouts, scripting, runtimes, and best practices
 - **`rive-recipes/`** — 10 code-first recipes for common Rive tasks
 - **`GEMINI.md`, `.cursor/rules/rive.mdc`, `.windsurfrules`, `.github/copilot-instructions.md`** — Native context files for Gemini CLI, Cursor, Windsurf, and GitHub Copilot
 
-The curated reference files handle the majority of questions. When exact API signatures are needed, the assistant fetches the relevant page directly from the [official Rive docs repository](https://github.com/rive-app/rive-docs) on GitHub.
+The curated reference files handle the majority of questions. When exact API signatures are needed, supported tools fetch the relevant page directly from the [official Rive docs repository](https://github.com/rive-app/rive-docs) on GitHub.
 
 ## Setup
 
@@ -46,21 +61,31 @@ git submodule update --remote
 
 ## Usage
 
-Open the cloned folder as your working directory. Each supported tool picks up its context file automatically — no extra configuration needed.
+Open the cloned folder as your working directory. Each supported tool picks up its context file automatically.
 
 | Tool | Context file | Notes |
 |---|---|---|
+| **Codex** | `AGENTS.md` | Auto-loaded as repo instructions. Supports remote docs fetching when network tools are available. |
 | **Claude Code** | `CLAUDE.md` | Auto-loaded. Supports remote docs fetching. |
 | **Gemini CLI** | `GEMINI.md` | Auto-loaded. Supports remote docs fetching. |
 | **Cursor** | `.cursor/rules/rive.mdc` | Auto-loaded (`alwaysApply: true`). |
 | **Windsurf** | `.windsurfrules` | Auto-loaded from project root. |
 | **GitHub Copilot** | `.github/copilot-instructions.md` | Auto-loaded for Copilot Chat. |
 
-**Claude Code and Gemini CLI** fetch official documentation pages on demand for exact API signatures. **Cursor, Windsurf, and Copilot** use the local `rive-reference/` files only — for exact API details, paste the relevant page from [rive-app/rive-docs](https://github.com/rive-app/rive-docs) into the conversation.
+**Codex, Claude Code, and Gemini CLI** are instructed to fetch official documentation pages on demand for exact API signatures. **Cursor, Windsurf, and Copilot** use the local `rive-reference/` files only — for exact API details, paste the relevant page from [rive-app/rive-docs](https://github.com/rive-app/rive-docs) into the conversation.
 
 ### Other tools
 
 Copy the contents of `CLAUDE.md` as a system prompt and make the `rive-reference/` directory available as context or attachments.
+
+## Example questions
+
+Ask your AI tool questions like:
+
+- "Plan a Rive architecture for a data-driven onboarding flow in React."
+- "Write a Luau converter script that formats a number as currency."
+- "How should I build a dynamic list with Data Binding instead of legacy Inputs?"
+- "Which Rive runtime package should I use for WebGL2 and many canvas instances?"
 
 ## What the assistant covers
 
@@ -71,6 +96,8 @@ Copy the contents of `CLAUDE.md` as a system prompt and make the `rive-reference
 - **Scripting** — Luau, all protocols, scripting API reference
 - **Runtimes** — Web, React, React Native, Flutter, iOS, Android, Unity, Unreal, Defold
 - **Best practices** — Performance, file organization, cross-platform patterns
+
+The focus is practical building with Rive: editor structure, animation logic, Data Binding, scripting, runtime integration, and performance.
 
 ## Staying up to date
 
