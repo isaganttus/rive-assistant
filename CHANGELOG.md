@@ -13,6 +13,7 @@ Format: `[Unreleased]` at top, then dated entries in reverse chronological order
 - `AGENTS.md` for native Codex repo instructions.
 - Onboarding documentation tests for supported AI tool setup.
 - Tool context sync validator to catch drift across Codex, Claude Code, Gemini, Cursor, Windsurf, and Copilot instructions.
+- Answer-quality eval cases and validator for representative Rive assistant questions.
 
 ### Changed
 - Updated concept-map and recipe source links to match current `docs-paths.txt`.

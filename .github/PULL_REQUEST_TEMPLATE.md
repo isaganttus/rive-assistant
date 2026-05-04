@@ -11,6 +11,7 @@
 - [ ] `docs-paths.txt` not manually edited (it's auto-generated)
 - [ ] `python3 scripts/validate_doc_paths.py` passes
 - [ ] `python3 scripts/validate_tool_context_sync.py` passes
+- [ ] `python3 scripts/validate_answer_evals.py` passes
 - [ ] Submodule pointer updated if `rive-docs/` was bumped
 
 ## Source

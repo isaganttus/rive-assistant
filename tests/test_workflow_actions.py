@@ -48,6 +48,11 @@ class WorkflowActionsTest(unittest.TestCase):
 
         self.assertIn("python3 scripts/validate_tool_context_sync.py", workflow)
 
+    def test_validate_workflow_runs_answer_eval_check(self):
+        workflow = (WORKFLOW_DIR / "validate-doc-paths.yml").read_text(encoding="utf-8")
+
+        self.assertIn("python3 scripts/validate_answer_evals.py", workflow)
+
 
 if __name__ == "__main__":
     unittest.main()

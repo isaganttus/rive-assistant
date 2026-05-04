@@ -27,6 +27,7 @@ A Rive expert assistant for AI models. Drop it into an AI coding environment to 
 - **`CLAUDE.md`** — Claude Code context file with the same Rive assistant behavior
 - **`rive-reference/`** — 11 curated reference files covering common building-with-Rive domains: editor, state machines, data binding, layouts, scripting, runtimes, and best practices
 - **`rive-recipes/`** — 10 code-first recipes for common Rive tasks
+- **`evals/`** — Answer-quality evals that define required concepts, red flags, and source-routing expectations for representative Rive questions
 - **`GEMINI.md`, `.cursor/rules/rive.mdc`, `.windsurfrules`, `.github/copilot-instructions.md`** — Native context files for Gemini CLI, Cursor, Windsurf, and GitHub Copilot
 
 The curated reference files handle the majority of questions. When exact API signatures are needed, supported tools fetch the relevant page directly from the [official Rive docs repository](https://github.com/rive-app/rive-docs) on GitHub.
@@ -98,6 +99,16 @@ Ask your AI tool questions like:
 - **Best practices** — Performance, file organization, cross-platform patterns
 
 The focus is practical building with Rive: editor structure, animation logic, Data Binding, scripting, runtime integration, and performance.
+
+## Answer-quality evals
+
+The `evals/cases/` files define the quality bar for representative assistant answers. Each eval records the local references to consult, official source docs to verify, concepts a good answer must include, and red flags that indicate risky guidance.
+
+Validate them with:
+
+```bash
+python3 scripts/validate_answer_evals.py
+```
 
 ## Staying up to date
 

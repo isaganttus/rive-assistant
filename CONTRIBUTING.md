@@ -63,3 +63,15 @@ When adding a recipe:
 - Default runtime code to JavaScript/TypeScript; note cross-platform differences inline
 - Keep it under 120 lines — if it's growing larger, it's probably two recipes
 - Fetch the relevant source docs page to verify API accuracy before writing code examples
+
+## Adding answer-quality evals
+
+Eval cases live in `evals/cases/`. Each JSON file defines one representative Rive question, the local references an assistant should use, official source docs to verify, required answer concepts, red flags, and the ideal answer shape.
+
+When adding or editing evals:
+- Keep one question per file
+- Use stable, descriptive IDs
+- Point `expected_reference_files` to files that exist in this repo
+- Point `expected_source_paths` to paths listed in `docs-paths.txt`
+- Include red flags for deprecated or risky guidance
+- Run `python3 scripts/validate_answer_evals.py`

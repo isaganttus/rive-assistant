@@ -27,6 +27,7 @@ class OnboardingDocsTest(unittest.TestCase):
         self.assertIn("What this repo is", readme)
         self.assertIn("What this repo is not", readme)
         self.assertIn("Example questions", readme)
+        self.assertIn("Answer-quality evals", readme)
 
     def test_readme_describes_building_scope_without_overclaiming_all_rive_domains(self):
         readme = self.read("README.md")
@@ -40,6 +41,12 @@ class OnboardingDocsTest(unittest.TestCase):
         self.assertIn("`AGENTS.md`", contributing)
         self.assertIn("Codex", contributing)
         self.assertIn("python3 scripts/validate_tool_context_sync.py", contributing)
+
+    def test_contributing_mentions_answer_eval_validation(self):
+        contributing = self.read("CONTRIBUTING.md")
+
+        self.assertIn("evals/cases/", contributing)
+        self.assertIn("python3 scripts/validate_answer_evals.py", contributing)
 
 
 if __name__ == "__main__":

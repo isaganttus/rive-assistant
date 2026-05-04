@@ -21,3 +21,6 @@ jobs:
 
       - name: Validate tool context sync
         run: python3 scripts/validate_tool_context_sync.py
+
+      - name: Validate answer-quality evals
+        run: python3 scripts/validate_answer_evals.py
