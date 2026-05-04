@@ -1,0 +1,31 @@
+{
+  "id": "web-renderer-many-instances",
+  "question": "Which Rive web renderer should I use for a page with many animations and advanced effects?",
+  "tags": ["web", "react", "renderer", "performance"],
+  "expected_reference_files": [
+    "rive-reference/06-runtimes-overview.md",
+    "rive-reference/07-web-react-runtime.md",
+    "rive-reference/10-best-practices.md"
+  ],
+  "expected_source_paths": [
+    "runtimes/web/canvas-vs-webgl.mdx",
+    "runtimes/react/preloading-wasm.mdx",
+    "getting-started/best-practices.mdx"
+  ],
+  "required_concepts": [
+    "Compare Canvas2D and WebGL2/Rive Renderer trade-offs",
+    "Mention Rive Renderer is required for vector feathering and advanced blend modes",
+    "Mention browser WebGL context limits for many instances",
+    "Recommend cleanup and lazy loading for performance"
+  ],
+  "red_flags": [
+    "Says Canvas2D supports every advanced effect",
+    "Ignores WebGL context limits",
+    "Omits cleanup of runtime instances"
+  ],
+  "ideal_answer_shape": [
+    "Start with renderer selection criteria",
+    "Explain many-instance constraints",
+    "End with practical performance checklist"
+  ]
+}

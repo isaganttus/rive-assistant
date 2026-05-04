@@ -1,0 +1,33 @@
+{
+  "id": "state-machine-modern-control",
+  "question": "How should I drive a Rive state machine from React for a new project?",
+  "tags": ["state-machines", "react", "data-binding"],
+  "expected_reference_files": [
+    "rive-reference/02-state-machines-and-events.md",
+    "rive-reference/03-data-binding.md",
+    "rive-reference/07-web-react-runtime.md",
+    "rive-recipes/state-machine-control.md"
+  ],
+  "expected_source_paths": [
+    "editor/state-machine/transitions.mdx",
+    "editor/state-machine/inputs.mdx",
+    "runtimes/react/data-binding.mdx"
+  ],
+  "required_concepts": [
+    "Recommend Data Binding with View Models for new work",
+    "Mention legacy Inputs are deprecated",
+    "Use exported View Model Instances as the designer-developer contract",
+    "Explain boolean properties versus triggers for sustained and one-shot state changes"
+  ],
+  "red_flags": [
+    "Recommends legacy Inputs for new work",
+    "Omits Data Binding",
+    "Skips exported View Model Instances",
+    "Presents React-only guidance without the cross-platform pattern"
+  ],
+  "ideal_answer_shape": [
+    "Start with the modern cross-platform pattern",
+    "Then show the React-specific API shape",
+    "Call out the legacy Input approach only as deprecated context"
+  ]
+}

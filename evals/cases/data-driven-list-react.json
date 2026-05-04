@@ -1,0 +1,33 @@
+{
+  "id": "data-driven-list-react",
+  "question": "How should I build a dynamic scrolling list in Rive and populate it from React data?",
+  "tags": ["data-binding", "lists", "react", "layouts"],
+  "expected_reference_files": [
+    "rive-reference/03-data-binding.md",
+    "rive-reference/04-layouts.md",
+    "rive-reference/07-web-react-runtime.md",
+    "rive-recipes/data-driven-list.md",
+    "rive-recipes/scroll-view-react.md"
+  ],
+  "expected_source_paths": [
+    "editor/data-binding/lists.mdx",
+    "editor/layouts/scrolling.mdx",
+    "runtimes/react/data-binding.mdx"
+  ],
+  "required_concepts": [
+    "Use a View Model List property bound to an Artboard List",
+    "Use layouts and Scroll Constraint for scrolling behavior",
+    "Create independent item view model instances at runtime",
+    "Mention virtualization for large lists"
+  ],
+  "red_flags": [
+    "Recommends duplicating artboards manually for runtime data",
+    "Uses legacy Inputs as the primary list data mechanism",
+    "Omits the item view model contract"
+  ],
+  "ideal_answer_shape": [
+    "Start with the editor hierarchy and view models",
+    "Then explain React runtime population",
+    "End with performance notes for large lists"
+  ]
+}
