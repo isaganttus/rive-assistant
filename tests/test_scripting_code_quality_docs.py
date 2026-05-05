@@ -80,9 +80,11 @@ class ScriptingCodeQualityDocsTest(unittest.TestCase):
         self.assertIn("Vector.xy", reference)
         self.assertIn("vm:getNumber", reference)
         self.assertIn("performAction", reference)
+        self.assertIn("reverseConvert(self, input: O) -> I`: Required by the protocol contract", reference)
 
         converter = self.read("rive-recipes/custom-converter.md")
         self.assertIn("Converter<ScoreFormatter, DataValueNumber, DataValueString>", converter)
+        self.assertIn("`reverseConvert` is part of the `Converter<T, I, O>` protocol contract", converter)
 
         transition = self.read("rive-recipes/transition-condition-script.md")
         self.assertIn("pressCount.value", transition)

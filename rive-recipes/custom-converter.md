@@ -68,7 +68,7 @@ end
 
 - The converter type declares its exact input and output: `Converter<ScoreFormatter, DataValueNumber, DataValueString>`.
 - `DataValue.number()` and `DataValue.string()` construct new typed values.
-- The editor uses `reverseConvert` for reverse/bidirectional flow; source-to-target-only use cases can implement a simple inverse or documented passback as appropriate for the selected converter type.
+- `reverseConvert` is part of the `Converter<T, I, O>` protocol contract; the editor uses it for reverse/bidirectional flow, so implement a safe inverse for the selected converter type.
 - Keep `convert` and `reverseConvert` side-effect free; they should not mutate view models, play audio, or call external services.
 - Built-in converters (add, multiply, to-string) handle simple cases — use a script only for logic built-ins can't express.
 - Keep `convert` fast — it runs every frame when the bound value changes.

@@ -58,7 +58,7 @@ Extends Node (inherits all lifecycle). Additional:
 Protocol: `Converter<T, I, O>`, where `I` and `O` are exact `DataValue*` types chosen for the binding.
 - `init(self, context) -> bool`: Optional setup
 - `convert(self, input: I) -> O`: Input to output (required)
-- `reverseConvert(self, input: O) -> I`: Output to input when the binding uses reverse or bidirectional flow
+- `reverseConvert(self, input: O) -> I`: Required by the protocol contract; used for output-to-input conversion when the binding uses reverse or bidirectional flow
 - `advance(self, seconds) -> bool`: Optional time-based converter updates
 
 Number-to-string example: `convert(self, input: DataValueNumber) -> DataValueString` and `reverseConvert(self, input: DataValueString) -> DataValueNumber`.
