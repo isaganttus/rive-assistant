@@ -16,11 +16,15 @@
     "Identify converter scripts as the right place for value transformation",
     "Keep conversion side-effect free",
     "Mention input and output types",
+    "Use exact DataValue input and output types when the binding types are known",
+    "Return `Converter<ScoreFormatter, DataValueNumber, DataValueString>` for the shown number-to-string example",
     "Verify exact protocol method names against source docs before giving production code"
   ],
   "red_flags": [
     "Suggests changing the bound text manually from runtime code instead of using a converter",
     "Performs external calls or state mutation inside conversion",
+    "Uses generic `DataInputs` or `DataOutput` in the production example when exact DataValue types are known",
+    "Mutates ViewModel properties, plays audio, or performs other side effects inside `convert`",
     "Omits Data Binding context"
   ],
   "ideal_answer_shape": [

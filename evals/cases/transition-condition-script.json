@@ -1,0 +1,34 @@
+{
+  "id": "transition-condition-script",
+  "question": "Write a Rive transition condition script that allows a transition once a ViewModel number reaches 3.",
+  "tags": ["scripting", "state-machines", "data-binding", "transition-conditions"],
+  "expected_reference_files": [
+    "rive-reference/02-state-machines-and-events.md",
+    "rive-reference/03-data-binding.md",
+    "rive-reference/05-scripting.md",
+    "rive-recipes/transition-condition-script.md"
+  ],
+  "expected_source_paths": [
+    "scripting/protocols/transition-condition-scripts.mdx",
+    "scripting/data-binding.mdx",
+    "scripting/api-reference/interfaces/view-model.mdx",
+    "scripting/api-reference/data-value/property.mdx"
+  ],
+  "required_concepts": [
+    "Use the TransitionCondition protocol for custom transition logic",
+    "Store context-derived ViewModel references on `self` during `init(self, context)`",
+    "Read ViewModel number properties with `vm:getNumber(\"name\")` and `.value`",
+    "Keep `evaluate` fast and side-effect free"
+  ],
+  "red_flags": [
+    "Uses `vm:number(\"name\")` or property `:get()` instead of `getNumber` and `.value`",
+    "Adds `context = late()` to the returned protocol table",
+    "Plays audio, mutates ViewModel data, or performs external side effects from `evaluate`",
+    "Omits nil checks for the ViewModel or number property"
+  ],
+  "ideal_answer_shape": [
+    "Briefly explain when a transition condition script is warranted",
+    "Show a concise Luau `TransitionCondition` script",
+    "Call out the editor setup and side-effect-free `evaluate` rule"
+  ]
+}
