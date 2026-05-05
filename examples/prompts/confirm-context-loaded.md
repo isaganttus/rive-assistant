@@ -1,4 +1,8 @@
-# Context Loaded
+# Confirm Context Loaded
+
+## User Goal
+
+Check whether the AI tool loaded the Rive assistant context from this repo.
 
 ## Prompt
 

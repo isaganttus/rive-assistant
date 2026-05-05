@@ -1,4 +1,8 @@
-# Scripting Converter
+# Write A Converter Script
+
+## User Goal
+
+Plan a Rive Luau converter script before writing final code.
 
 ## Prompt
 

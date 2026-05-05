@@ -8,6 +8,21 @@
 
 A Rive expert assistant for AI models. Drop it into an AI coding environment to get a context-aware Rive co-pilot for building with Rive: project planning, Luau scripting, runtime integration, and technical answers grounded in the official Rive documentation.
 
+## Start here
+
+New to the project? Use [docs/quickstart.md](docs/quickstart.md).
+
+Choose your tool:
+
+- [Codex setup](docs/setup/codex.md)
+- [Claude Code setup](docs/setup/claude-code.md)
+- [Gemini CLI setup](docs/setup/gemini-cli.md)
+- [Cursor setup](docs/setup/cursor.md)
+- [Windsurf setup](docs/setup/windsurf.md)
+- [GitHub Copilot setup](docs/setup/github-copilot.md)
+
+Then run the checks in [docs/smoke-testing.md](docs/smoke-testing.md). If the assistant gives generic answers, recommends deprecated Inputs, or cannot fetch source docs, use [docs/troubleshooting.md](docs/troubleshooting.md).
+
 ## What this repo is
 
 - An open source AI context pack for Rive development workflows
@@ -84,7 +99,7 @@ Copy the contents of `CLAUDE.md` as a system prompt and make the `rive-reference
 
 After connecting an AI tool to this repo, run the manual smoke checks in [docs/smoke-testing.md](docs/smoke-testing.md). The guide verifies that the tool loaded the right context, routes through the local reference files, prefers Data Binding with View Models over Legacy Inputs, and treats exact API signatures as source-verified details.
 
-For repeatable copy/paste checks, use the prompt examples in [examples/prompts/](examples/prompts/).
+For repeatable copy/paste checks, use the goal-based prompts in [examples/prompts/](examples/prompts/) and answer-shape examples in [examples/conversations/](examples/conversations/).
 
 ## Example questions
 

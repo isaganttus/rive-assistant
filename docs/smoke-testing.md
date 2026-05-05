@@ -104,12 +104,15 @@ Expected answer:
 
 Use the examples in [examples/prompts/](../examples/prompts/) for repeatable manual checks:
 
-- [Context loaded](../examples/prompts/context-loaded.md)
-- [Data Binding list in React](../examples/prompts/data-binding-list-react.md)
-- [Runtime renderer choice](../examples/prompts/runtime-renderer-choice.md)
-- [Scripting converter](../examples/prompts/scripting-converter.md)
+- [Confirm context loaded](../examples/prompts/confirm-context-loaded.md)
+- [Build a dynamic UI](../examples/prompts/build-a-dynamic-ui.md)
+- [Choose a runtime](../examples/prompts/choose-a-runtime.md)
+- [Fix outdated Rive advice](../examples/prompts/fix-outdated-rive-advice.md)
+- [Write a converter script](../examples/prompts/write-a-converter-script.md)
 
 Each example includes the prompt, what a good answer should mention, and red flags to watch for.
+
+For longer examples, read [examples/conversations/](../examples/conversations/).
 
 ## Passing Criteria
 
