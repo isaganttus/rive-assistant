@@ -56,8 +56,8 @@ Extends Node (inherits all lifecycle). Additional:
 **Purpose**: Transform data between view model and bound properties.
 
 - `init(self, context) -> bool`: Optional setup
-- `convert(self, input: InputType) -> OutputType`: Input to output (required)
-- `reverseConvert(self, input: OutputType) -> InputType`: Output to input for 2-way binding
+- `convert(self, input: DataValueNumber) -> DataValueString`: Input to output for a number-to-string binding (required)
+- `reverseConvert(self, input: DataValueString) -> DataValueNumber`: Output to input for a 2-way number-to-string binding
 - `advance(self, seconds) -> bool`: Optional time-based converter updates
 
 Factory: `Converter<MyConverter, DataValueNumber, DataValueString>` (choose exact `DataValue*` types for the binding).
