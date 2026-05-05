@@ -43,7 +43,7 @@ Lifecycle:
 
 Pointer callbacks: `pointerDown`, `pointerMove`, `pointerUp`, `pointerExit`
 
-Must implement at least `init` and `draw`.
+Common render scripts usually provide `init` and `draw`; lifecycle callbacks are optional and should match the behavior the script needs.
 
 ### Layout Scripts
 **Purpose**: Custom layout measurement and resize behavior.
@@ -68,7 +68,7 @@ Created via Data Panel > Converters > Script.
 **Purpose**: Modify path geometry in real-time (warping, distortion).
 
 - `init(self, context) -> bool`: Optional setup
-- `update(self, inPath: PathData) -> PathData`: Required; transforms path
+- `update(self, path: PathData, node: NodeReadData) -> PathData`: Required; transforms path. `node` is read-only node data.
 - `advance(self, seconds) -> bool`: Optional for animated effects
 
 Applied to strokes via Options menu > Effects.
@@ -196,7 +196,7 @@ self.enemy:pointerDown(localEvent)
 
 **Path**: `Path.new()` with `moveTo()`, `lineTo()`, `quadTo()`, `cubicTo()`, `close()`, `reset()`, `add(otherPath, transform)`
 
-**Paint**: Set `color` (via `Color.rgba(r,g,b,a)` or `Color.hex()`), `stroke` width, `blendMode`, `strokeCap`, `strokeJoin`
+**Paint**: Set `style`, `thickness`, `cap`, `join`, `blendMode`, `feather`, `gradient`, and `color` (via `Color.rgba(r,g,b,a)` or `Color.hex()`)
 
 **Renderer**: `drawPath(path, paint)`, `drawImage(image, sampler, blendMode, opacity)`, `clipPath(path)`, `save()/restore()`, `transform(mat2d)`
 
