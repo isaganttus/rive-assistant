@@ -64,6 +64,13 @@ class WorkflowActionsTest(unittest.TestCase):
         self.assertIn("python3 scripts/map_changed_docs_to_local_files.py", workflow)
         self.assertIn("Likely local files to review", workflow)
 
+    def test_sync_workflows_use_bot_token_for_pull_requests(self):
+        for workflow_name in ("sync-docs-paths.yml", "sync-content-hashes.yml"):
+            workflow = (WORKFLOW_DIR / workflow_name).read_text(encoding="utf-8")
+
+            self.assertIn("token: ${{ secrets.RIVE_ASSISTANT_BOT_TOKEN }}", workflow)
+            self.assertNotIn("token: ${{ secrets.GITHUB_TOKEN }}", workflow)
+
 
 if __name__ == "__main__":
     unittest.main()
