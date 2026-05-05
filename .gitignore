@@ -9,5 +9,9 @@ Thumbs.db
 *.swo
 MEMORY.md
 
+# Python
+__pycache__/
+*.pyc
+
 # Worktrees
 .worktrees/
