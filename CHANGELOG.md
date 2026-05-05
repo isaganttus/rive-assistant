@@ -16,6 +16,7 @@ Format: `[Unreleased]` at top, then dated entries in reverse chronological order
 - Answer-quality eval cases and validator for representative Rive assistant questions.
 - Release process documentation for date-based tags and validation requirements.
 - Source traceability metadata and validation for curated reference files.
+- Upstream docs drift mapping from changed source pages to local references, recipes, and evals.
 
 ### Changed
 - Updated concept-map and recipe source links to match current `docs-paths.txt`.

@@ -54,6 +54,12 @@ class OnboardingDocsTest(unittest.TestCase):
         self.assertIn("Source docs metadata", contributing)
         self.assertIn("python3 scripts/validate_reference_metadata.py", contributing)
 
+    def test_contributing_mentions_upstream_drift_mapping(self):
+        contributing = self.read("CONTRIBUTING.md")
+
+        self.assertIn("upstream drift", contributing)
+        self.assertIn("python3 scripts/map_changed_docs_to_local_files.py", contributing)
+
 
 if __name__ == "__main__":
     unittest.main()

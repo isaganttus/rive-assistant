@@ -17,6 +17,12 @@ See `rive-reference/TEMPLATE.md` for the standard file structure, tone guidance,
 
 Run `python3 scripts/validate_reference_metadata.py` before opening a PR that changes `rive-reference/`. The validator checks `Last verified` dates, Source docs metadata, and whether metadata paths still exist in `docs-paths.txt`.
 
+The weekly content-hash workflow uses Source docs metadata to map upstream drift to local files that likely need review. To preview that mapping locally, pass changed upstream docs paths to `python3 scripts/map_changed_docs_to_local_files.py`, for example:
+
+```bash
+python3 scripts/map_changed_docs_to_local_files.py editor/data-binding/overview
+```
+
 ## Updating the concept map
 
 `rive-reference/00-concept-map.md` maps Rive topics to curated reference files and official documentation paths. If you add a new reference file or the Rive team reorganizes their docs, the concept map needs updating too.

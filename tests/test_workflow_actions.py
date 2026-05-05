@@ -58,6 +58,12 @@ class WorkflowActionsTest(unittest.TestCase):
 
         self.assertIn("python3 scripts/validate_reference_metadata.py", workflow)
 
+    def test_content_hash_workflow_maps_changed_docs_to_local_files(self):
+        workflow = (WORKFLOW_DIR / "sync-content-hashes.yml").read_text(encoding="utf-8")
+
+        self.assertIn("python3 scripts/map_changed_docs_to_local_files.py", workflow)
+        self.assertIn("Likely local files to review", workflow)
+
 
 if __name__ == "__main__":
     unittest.main()
