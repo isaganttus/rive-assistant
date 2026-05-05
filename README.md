@@ -2,8 +2,9 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Last commit](https://img.shields.io/github/last-commit/isaganttus/rive-assistant)](https://github.com/isaganttus/rive-assistant/commits/main)
-[![Sync docs paths](https://github.com/isaganttus/rive-assistant/actions/workflows/sync-docs-paths.yml/badge.svg)](https://github.com/isaganttus/rive-assistant/actions/workflows/sync-docs-paths.yml)
-[![Validate docs references](https://github.com/isaganttus/rive-assistant/actions/workflows/validate-doc-paths.yml/badge.svg)](https://github.com/isaganttus/rive-assistant/actions/workflows/validate-doc-paths.yml)
+[![Sync Rive docs paths](https://github.com/isaganttus/rive-assistant/actions/workflows/sync-docs-paths.yml/badge.svg)](https://github.com/isaganttus/rive-assistant/actions/workflows/sync-docs-paths.yml)
+[![Sync Rive docs content hashes](https://github.com/isaganttus/rive-assistant/actions/workflows/sync-content-hashes.yml/badge.svg)](https://github.com/isaganttus/rive-assistant/actions/workflows/sync-content-hashes.yml)
+[![Validate repository](https://github.com/isaganttus/rive-assistant/actions/workflows/validate-doc-paths.yml/badge.svg)](https://github.com/isaganttus/rive-assistant/actions/workflows/validate-doc-paths.yml)
 
 A Rive expert assistant for AI models. Drop it into an AI coding environment to get a context-aware Rive co-pilot for building with Rive: project planning, Luau scripting, runtime integration, and technical answers grounded in the official Rive documentation.
 

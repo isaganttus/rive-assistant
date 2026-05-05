@@ -1,4 +1,4 @@
-name: Validate docs references
+name: Validate repository
 
 on:
   pull_request:
