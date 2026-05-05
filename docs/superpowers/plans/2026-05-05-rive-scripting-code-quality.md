@@ -52,11 +52,20 @@ STALE_PATTERNS = {
     "Vec2D": "Use `Vector` and `Vector.xy(...)` in Rive Luau scripts.",
     "vm:number(": "Use `vm:getNumber(...)` and read the returned property's `.value`.",
     ":get()": "Read Rive ViewModel properties through `.value`.",
-    "perform(self": "Use `performAction(self, listenerContext)` for ListenerAction scripts.",
     "context = late()": "Protocol context is passed to `init`; do not invent a `context` field.",
     "DataInputs": "Use exact DataValue input types when the converter type is known.",
     "DataOutput": "Use exact DataValue output types when the converter type is known.",
 }
+
+LEGACY_LISTENER_ACTION_PATTERN = "perform(self"
+LEGACY_LISTENER_ACTION_GUIDANCE = (
+    "Use `performAction(self, listenerContext)` for new ListenerAction scripts."
+)
+
+
+def is_allowed_legacy_listener_action_line(line: str) -> bool:
+    lowered = line.lower()
+    return "deprecated" in lowered or "legacy" in lowered
 
 
 class ScriptingCodeQualityDocsTest(unittest.TestCase):
@@ -65,10 +74,17 @@ class ScriptingCodeQualityDocsTest(unittest.TestCase):
 
     def test_scripting_surfaces_do_not_use_stale_luau_api_shapes(self):
         for relative_path in SCRIPTING_SURFACES:
-            content = self.read(relative_path)
-            for stale, guidance in STALE_PATTERNS.items():
-                with self.subTest(path=relative_path, stale=stale):
-                    self.assertNotIn(stale, content, guidance)
+            for line_number, line in enumerate(self.read(relative_path).splitlines(), start=1):
+                location = f"{relative_path}:{line_number}"
+                for stale, guidance in STALE_PATTERNS.items():
+                    with self.subTest(path=relative_path, line=line_number, stale=stale):
+                        self.assertNotIn(stale, line, f"{location}: {guidance}")
+
+                if (
+                    LEGACY_LISTENER_ACTION_PATTERN in line
+                    and not is_allowed_legacy_listener_action_line(line)
+                ):
+                    self.fail(f"{location}: {LEGACY_LISTENER_ACTION_GUIDANCE}")
 
     def test_scripting_surfaces_teach_current_replacements(self):
         reference = self.read("rive-reference/05-scripting.md")
@@ -100,7 +116,7 @@ Run:
 pytest tests/test_scripting_code_quality_docs.py -q
 ```
 
-Expected result: failure showing stale patterns in the current scripting reference and recipes, including `Vec2D`, `vm:number(`, `perform(self`, `DataInputs`, or `DataOutput`.
+Expected result: failure showing stale patterns in the current scripting reference and recipes, including `Vec2D`, `vm:number(`, `DataInputs`, or `DataOutput`. `perform(self` should only fail on lines that do not clearly mention deprecated or legacy context.
 
 - [ ] **Step 3: Commit the failing test**
 
