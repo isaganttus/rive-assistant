@@ -55,12 +55,13 @@ Extends Node (inherits all lifecycle). Additional:
 ### Converter Scripts
 **Purpose**: Transform data between view model and bound properties.
 
+Protocol: `Converter<T, I, O>`, where `I` and `O` are exact `DataValue*` types chosen for the binding.
 - `init(self, context) -> bool`: Optional setup
-- `convert(self, input: DataValueNumber) -> DataValueString`: Input to output for a number-to-string binding (required)
-- `reverseConvert(self, input: DataValueString) -> DataValueNumber`: Output to input for a 2-way number-to-string binding
+- Number-to-string example: `convert(self, input: DataValueNumber) -> DataValueString` (required)
+- Number-to-string 2-way example: `reverseConvert(self, input: DataValueString) -> DataValueNumber`
 - `advance(self, seconds) -> bool`: Optional time-based converter updates
 
-Factory: `Converter<MyConverter, DataValueNumber, DataValueString>` (choose exact `DataValue*` types for the binding).
+Number-to-string factory example: `Converter<MyConverter, DataValueNumber, DataValueString>`. Choose other exact `DataValue*` types to match other bindings.
 
 Created via Data Panel > Converters > Script.
 
