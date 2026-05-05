@@ -84,9 +84,21 @@ jobs:
         if: steps.compare.outputs.changed == 'true'
         id: changes
         run: |
-          CHANGED=$(grep '^[<>]' /tmp/hashes-diff.txt | awk '{print $3}' | sort -u | sed 's/^/- /')
+          grep '^[<>]' /tmp/hashes-diff.txt | awk '{print $3}' | sort -u > /tmp/changed-pages.txt
+          CHANGED=$(sed 's/^/- /' /tmp/changed-pages.txt)
           echo "pages<<EOF" >> $GITHUB_OUTPUT
           echo "$CHANGED" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Map changed docs to local files
+        if: steps.compare.outputs.changed == 'true'
+        id: impact
+        run: |
+          python3 scripts/map_changed_docs_to_local_files.py \
+            --changed-pages-file /tmp/changed-pages.txt \
+            > /tmp/local-impact.md
+          echo "content<<EOF" >> $GITHUB_OUTPUT
+          cat /tmp/local-impact.md >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Open PR
@@ -104,4 +116,6 @@ jobs:
             **Changed pages:**
             ${{ steps.changes.outputs.pages }}
 
-            To find which reference file covers a changed page, look it up in `rive-reference/00-concept-map.md`.
+            **Likely local files to review:**
+
+            ${{ steps.impact.outputs.content }}

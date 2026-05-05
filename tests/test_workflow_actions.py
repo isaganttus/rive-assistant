@@ -43,6 +43,27 @@ class WorkflowActionsTest(unittest.TestCase):
 
         self.assertEqual(checked_actions, set(NODE24_ACTION_PINS))
 
+    def test_validate_workflow_runs_tool_context_sync_check(self):
+        workflow = (WORKFLOW_DIR / "validate-doc-paths.yml").read_text(encoding="utf-8")
+
+        self.assertIn("python3 scripts/validate_tool_context_sync.py", workflow)
+
+    def test_validate_workflow_runs_answer_eval_check(self):
+        workflow = (WORKFLOW_DIR / "validate-doc-paths.yml").read_text(encoding="utf-8")
+
+        self.assertIn("python3 scripts/validate_answer_evals.py", workflow)
+
+    def test_validate_workflow_runs_reference_metadata_check(self):
+        workflow = (WORKFLOW_DIR / "validate-doc-paths.yml").read_text(encoding="utf-8")
+
+        self.assertIn("python3 scripts/validate_reference_metadata.py", workflow)
+
+    def test_content_hash_workflow_maps_changed_docs_to_local_files(self):
+        workflow = (WORKFLOW_DIR / "sync-content-hashes.yml").read_text(encoding="utf-8")
+
+        self.assertIn("python3 scripts/map_changed_docs_to_local_files.py", workflow)
+        self.assertIn("Likely local files to review", workflow)
+
 
 if __name__ == "__main__":
     unittest.main()

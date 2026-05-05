@@ -1,11 +1,10 @@
 # Rive Web & React Runtime Reference
 > Last verified: 2026-04-23
+> Source docs: `runtimes/web/`, `runtimes/react/`
 
 ## Overview
 
 The Web runtime is the JavaScript/WASM-based Rive engine for browsers. React wrappers provide hooks and components on top.
-
-**Source docs**: `runtimes/web/`, `runtimes/react/`
 
 ## Web JS Runtime
 

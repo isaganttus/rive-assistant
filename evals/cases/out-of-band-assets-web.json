@@ -1,0 +1,32 @@
+{
+  "id": "out-of-band-assets-web",
+  "question": "How do I load images or fonts outside the .riv file in a Web or React Rive integration?",
+  "tags": ["assets", "web", "react", "performance"],
+  "expected_reference_files": [
+    "rive-reference/06-runtimes-overview.md",
+    "rive-reference/07-web-react-runtime.md",
+    "rive-reference/10-best-practices.md",
+    "rive-recipes/out-of-band-assets.md"
+  ],
+  "expected_source_paths": [
+    "runtimes/web/loading-assets.mdx",
+    "runtimes/react/loading-assets.mdx",
+    "runtimes/web/web-js.mdx"
+  ],
+  "required_concepts": [
+    "Explain embedded assets versus out-of-band assets",
+    "Use the runtime assetLoader pattern",
+    "Return the correct handled or fallback signal from the loader",
+    "Mention performance and caching trade-offs"
+  ],
+  "red_flags": [
+    "Claims out-of-band assets require rebuilding the .riv file",
+    "Omits fallback behavior for assets not handled by the loader",
+    "Treats all asset types as having identical loading APIs"
+  ],
+  "ideal_answer_shape": [
+    "Explain when out-of-band assets are useful",
+    "Show the Web or React loader shape",
+    "Close with caching, fallback, and deployment notes"
+  ]
+}

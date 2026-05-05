@@ -1,11 +1,10 @@
 # Rive Mobile Runtimes Reference
 > Last verified: 2026-04-23
+> Source docs: `runtimes/flutter/`, `runtimes/apple/`, `runtimes/android/`, `runtimes/react-native/`
 
 ## Overview
 
 Mobile runtimes cover Flutter, Apple (iOS/macOS), Android, and React Native. All share the same core pattern but with platform-specific APIs.
-
-**Source docs**: `runtimes/flutter/`, `runtimes/apple/`, `runtimes/android/`, `runtimes/react-native/`
 
 ## Flutter
 

@@ -1,11 +1,10 @@
 # Rive Game Runtimes Reference
 > Last verified: 2026-04-23
+> Source docs: `game-runtimes/unity/`, `game-runtimes/unreal/`, `game-runtimes/defold.mdx`
 
 ## Overview
 
 Game runtimes integrate Rive into game engines. Key difference from app runtimes: game engines have their own render pipelines and game loops, so integration points differ.
-
-**Source docs**: `game-runtimes/unity/`, `game-runtimes/unreal/`, `game-runtimes/defold.mdx`
 
 ## Unity
 

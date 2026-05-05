@@ -1,11 +1,10 @@
 # Rive Editor Fundamentals Reference
 > Last verified: 2026-04-23
+> Source docs: `editor/fundamentals/`, `editor/interface-overview/`, `editor/constraints/`, `editor/text/`, `editor/manipulating-shapes/`, `editor/exporting/`, `editor/libraries.mdx`
 
 ## Overview
 
 The Rive Editor is where all design and animation happens. This covers the core building blocks.
-
-**Source docs**: `editor/fundamentals/`, `editor/interface-overview/`, `editor/constraints/`, `editor/text/`, `editor/manipulating-shapes/`, `editor/exporting/`, `editor/libraries.mdx`
 
 ## Artboards
 

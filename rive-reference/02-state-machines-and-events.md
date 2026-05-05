@@ -1,11 +1,10 @@
 # Rive State Machines & Events Reference
 > Last verified: 2026-04-23
+> Source docs: `editor/state-machine/`, `editor/events/`, `editor/animate-mode/`
 
 ## Overview
 
 State Machines are visual systems connecting animations with logic-driven transitions. They are the primary mechanism for interactive, developer-ready motion graphics.
-
-**Source docs**: `editor/state-machine/`, `editor/events/`, `editor/animate-mode/`
 
 ## Architecture
 

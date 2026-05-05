@@ -10,11 +10,19 @@ Format: `[Unreleased]` at top, then dated entries in reverse chronological order
 
 ### Added
 - Docs path validation script and GitHub Action to catch stale official Rive docs references.
+- `AGENTS.md` for native Codex repo instructions.
+- Onboarding documentation tests for supported AI tool setup.
+- Tool context sync validator to catch drift across Codex, Claude Code, Gemini, Cursor, Windsurf, and Copilot instructions.
+- Answer-quality eval cases and validator for representative Rive assistant questions.
+- Release process documentation for date-based tags and validation requirements.
+- Source traceability metadata and validation for curated reference files.
+- Upstream docs drift mapping from changed source pages to local references, recipes, and evals.
 
 ### Changed
 - Updated concept-map and recipe source links to match current `docs-paths.txt`.
 - Offline docs instructions now require initialized submodule content (`rive-docs/docs.json`) before using local docs.
 - Content hash workflow now fails on fetch errors instead of opening partial update PRs.
+- README now clarifies project scope, Codex setup, and example questions.
 
 ---
 

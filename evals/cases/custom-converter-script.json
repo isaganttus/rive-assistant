@@ -1,0 +1,31 @@
+{
+  "id": "custom-converter-script",
+  "question": "Write a Rive converter script that turns a number from Data Binding into a formatted label.",
+  "tags": ["scripting", "data-binding", "converters"],
+  "expected_reference_files": [
+    "rive-reference/03-data-binding.md",
+    "rive-reference/05-scripting.md",
+    "rive-recipes/custom-converter.md"
+  ],
+  "expected_source_paths": [
+    "editor/data-binding/overview.mdx",
+    "scripting/protocols/converter-scripts.mdx",
+    "scripting/script-inputs.mdx"
+  ],
+  "required_concepts": [
+    "Identify converter scripts as the right place for value transformation",
+    "Keep conversion side-effect free",
+    "Mention input and output types",
+    "Verify exact protocol method names against source docs before giving production code"
+  ],
+  "red_flags": [
+    "Suggests changing the bound text manually from runtime code instead of using a converter",
+    "Performs external calls or state mutation inside conversion",
+    "Omits Data Binding context"
+  ],
+  "ideal_answer_shape": [
+    "Describe editor setup for the bound number and text",
+    "Show a concise Luau converter example",
+    "Explain how to bind the converter output"
+  ]
+}

@@ -1,11 +1,10 @@
 # Rive Scripting Reference
 > Last verified: 2026-04-23
+> Source docs: `scripting/`
 
 ## Overview
 
 Rive Scripting uses **Luau** (Roblox's typed Lua variant) with type annotations. Scripts are assets saved in the Assets Panel. Naming convention: PascalCase matching the main type name.
-
-**Source docs**: `scripting/` directory in the Rive docs.
 
 ## Creating Scripts
 

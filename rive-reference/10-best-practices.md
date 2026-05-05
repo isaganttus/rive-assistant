@@ -1,11 +1,10 @@
 # Rive Best Practices Reference
 > Last verified: 2026-04-23
+> Source docs: `getting-started/best-practices.mdx`, `getting-started/introduction.mdx`
 
 ## Overview
 
 Performance and asset optimization guidelines for Rive files and runtime integration.
-
-**Source docs**: `getting-started/best-practices.mdx`, `getting-started/introduction.mdx`
 
 ## Design-Time: Asset Optimization
 

@@ -11,8 +11,17 @@ When editing:
 - Keep examples minimal and illustrative
 - Prefer condensing over expanding — remove redundancy rather than adding more prose
 - Source information from the [official Rive docs](https://github.com/rive-app/rive-docs)
+- Keep the top-of-file `Last verified` and `Source docs` metadata current
 
 See `rive-reference/TEMPLATE.md` for the standard file structure, tone guidance, and length target.
+
+Run `python3 scripts/validate_reference_metadata.py` before opening a PR that changes `rive-reference/`. The validator checks `Last verified` dates, Source docs metadata, and whether metadata paths still exist in `docs-paths.txt`.
+
+The weekly content-hash workflow uses Source docs metadata to map upstream drift to local files that likely need review. To preview that mapping locally, pass changed upstream docs paths to `python3 scripts/map_changed_docs_to_local_files.py`, for example:
+
+```bash
+python3 scripts/map_changed_docs_to_local_files.py editor/data-binding/overview
+```
 
 ## Updating the concept map
 
@@ -40,15 +49,22 @@ Use the issue templates. For incorrect or outdated information, include a link t
 
 Use the PR template. The key question for almost every PR: does `rive-reference/00-concept-map.md` need updating?
 
+## Releases
+
+Release instructions live in `docs/releasing.md`. If a PR prepares a release, follow the release checklist before tagging and publishing.
+
 ## Keeping tool context files in sync
 
 When `CLAUDE.md` is updated with new content (deprecation notices, routing rules, vocabulary), apply the same change to all tool context files:
+- `AGENTS.md` — Codex context file, same content adapted for Codex
 - `GEMINI.md` — identical to `CLAUDE.md`
 - `.cursor/rules/rive.mdc` — same content, no URL fetch instructions, with YAML frontmatter
 - `.windsurfrules` — same as Cursor file minus the frontmatter
 - `.github/copilot-instructions.md` — identical to `.windsurfrules` (except tool name in "cannot fetch" line)
 
-The four tool files share all content except the "Full source documentation" fetch instructions and the "If a fetch returns 404" section (omitted from non-fetching tools).
+The tool files share all content except the "Full source documentation" fetch instructions and the "If a fetch returns 404" section (omitted from non-fetching tools).
+
+Run `python3 scripts/validate_tool_context_sync.py` before opening a PR that changes any tool context file. The validator checks shared headings, required assistant guidance, and Rive vocabulary terms across all supported tool files.
 
 ## Adding recipes
 
@@ -60,3 +76,15 @@ When adding a recipe:
 - Default runtime code to JavaScript/TypeScript; note cross-platform differences inline
 - Keep it under 120 lines — if it's growing larger, it's probably two recipes
 - Fetch the relevant source docs page to verify API accuracy before writing code examples
+
+## Adding answer-quality evals
+
+Eval cases live in `evals/cases/`. Each JSON file defines one representative Rive question, the local references an assistant should use, official source docs to verify, required answer concepts, red flags, and the ideal answer shape.
+
+When adding or editing evals:
+- Keep one question per file
+- Use stable, descriptive IDs
+- Point `expected_reference_files` to files that exist in this repo
+- Point `expected_source_paths` to paths listed in `docs-paths.txt`
+- Include red flags for deprecated or risky guidance
+- Run `python3 scripts/validate_answer_evals.py`

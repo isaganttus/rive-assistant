@@ -1,11 +1,10 @@
 # Rive Runtimes Overview Reference
 > Last verified: 2026-04-23
+> Source docs: `runtimes/getting-started.mdx`, `runtimes/choose-a-renderer/`, `runtimes/web/loading-assets.mdx`, `runtimes/web/caching-a-rive-file.mdx`, `runtimes/web/state-machines.mdx`, `runtimes/web/data-binding.mdx`
 
 ## Overview
 
 Runtimes are platform-specific libraries that load .riv files and render them natively. All runtimes share a common pattern: load file, select artboard, set up state machine, bind data, handle events.
-
-**Source docs**: `runtimes/getting-started.mdx`, `runtimes/choose-a-renderer/`, and platform runtime pages such as `runtimes/web/loading-assets.mdx`, `runtimes/web/caching-a-rive-file.mdx`, `runtimes/web/state-machines.mdx`, and `runtimes/web/data-binding.mdx`
 
 ## Official Runtimes
 
