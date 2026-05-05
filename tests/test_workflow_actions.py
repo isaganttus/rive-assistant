@@ -28,6 +28,17 @@ def workflow_uses_lines():
 
 
 class WorkflowActionsTest(unittest.TestCase):
+    def test_workflow_names_describe_their_scope(self):
+        expected_names = {
+            "sync-docs-paths.yml": "name: Sync Rive docs paths",
+            "sync-content-hashes.yml": "name: Sync Rive docs content hashes",
+            "validate-doc-paths.yml": "name: Validate repository",
+        }
+
+        for workflow_name, expected_name in expected_names.items():
+            workflow = (WORKFLOW_DIR / workflow_name).read_text(encoding="utf-8")
+            self.assertIn(expected_name, workflow)
+
     def test_node_action_pins_use_node24_compatible_releases(self):
         checked_actions = set()
 

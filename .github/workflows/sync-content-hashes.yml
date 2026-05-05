@@ -1,4 +1,4 @@
-name: Sync content hashes
+name: Sync Rive docs content hashes
 
 on:
   schedule:
