@@ -12,6 +12,8 @@ A Rive expert assistant for AI models. Drop it into an AI coding environment to 
 
 New to the project? Use [docs/quickstart.md](docs/quickstart.md).
 
+Want to see where the project is headed? Read [ROADMAP.md](ROADMAP.md).
+
 Choose your tool:
 
 - [Codex setup](docs/setup/codex.md)
