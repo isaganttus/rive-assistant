@@ -89,11 +89,13 @@ end
 
 ```lua
 local s = Audio.play(source)
-s:pause()
-s:resume()
-s:stop()
-s:seek(1.5)    -- jump to 1.5 seconds
-s.volume = 0.5
+if s ~= nil then
+  s:pause()
+  s:resume()
+  s:stop()
+  s:seek(1.5)    -- jump to 1.5 seconds
+  s.volume = 0.5
+end
 ```
 
 ## Notes
