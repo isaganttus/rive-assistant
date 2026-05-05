@@ -16,45 +16,43 @@
 -- ScoreFormatter.lua
 type ScoreFormatter = {}
 
--- Called once when the script initializes.
-function init(self: ScoreFormatter): boolean
+local function commaFormat(n: number): string
+  local sign = ""
+  if n < 0 then
+    sign = "-"
+    n = math.abs(n)
+  end
+
+  local s = tostring(math.floor(n))
+  local result = ""
+  local count = 0
+
+  for i = #s, 1, -1 do
+    if count > 0 and count % 3 == 0 then
+      result = "," .. result
+    end
+    result = s:sub(i, i) .. result
+    count += 1
+  end
+
+  return sign .. result
+end
+
+function init(self: ScoreFormatter, context: Context): boolean
   return true
 end
 
--- Converts a number input into a comma-formatted string.
-function convert(self: ScoreFormatter, input: DataInputs): DataOutput
-  local dv: DataValueString = DataValue.string()
-
-  if input:isNumber() then
-    local n = math.floor((input :: DataValueNumber).value)
-    local s = tostring(n)
-    local result = ""
-    local count = 0
-    for i = #s, 1, -1 do
-      if count > 0 and count % 3 == 0 then result = "," .. result end
-      result = s:sub(i, i) .. result
-      count = count + 1
-    end
-    dv.value = result .. " pts"
-  else
-    dv.value = "0 pts"
-  end
-
-  return dv
+function convert(self: ScoreFormatter, input: DataValueNumber): DataValueString
+  local output = DataValue.string()
+  output.value = commaFormat(input.value) .. " pts"
+  return output
 end
 
--- For 2-way binding: converts the formatted string back to a number.
-function reverseConvert(self: ScoreFormatter, input: DataOutput): DataInputs
-  local dv: DataValueNumber = DataValue.number()
-
-  if input:isString() then
-    local digits = (input :: DataValueString).value:gsub("[^%d]", "")
-    dv.value = tonumber(digits) or 0
-  else
-    dv.value = 0
-  end
-
-  return dv
+function reverseConvert(self: ScoreFormatter, input: DataValueString): DataValueNumber
+  local output = DataValue.number()
+  local digits = input.value:gsub("[^%d%-]", "")
+  output.value = tonumber(digits) or 0
+  return output
 end
 
 return function(): Converter<ScoreFormatter, DataValueNumber, DataValueString>
@@ -68,9 +66,10 @@ end
 
 ## Notes
 
-- `input` is typed as `DataInputs` — check `input:isNumber()`, `input:isString()`, etc. before casting with `::`.
-- `DataValue.number()` and `DataValue.string()` construct new typed output values.
-- `reverseConvert` enables bidirectional bindings. Omit it for source-to-target only.
+- The converter type declares its exact input and output: `Converter<ScoreFormatter, DataValueNumber, DataValueString>`.
+- `DataValue.number()` and `DataValue.string()` construct new typed values.
+- The editor uses `reverseConvert` for reverse/bidirectional flow; source-to-target-only use cases can implement a simple inverse or documented passback as appropriate for the selected converter type.
+- Keep `convert` and `reverseConvert` side-effect free; they should not mutate view models, play audio, or call external services.
 - Built-in converters (add, multiply, to-string) handle simple cases — use a script only for logic built-ins can't express.
 - Keep `convert` fast — it runs every frame when the bound value changes.
 - Source docs: `scripting/protocols/converter-scripts.mdx`

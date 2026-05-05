@@ -22,36 +22,38 @@ For simple conditions (boolean equals, number threshold), bind a view model prop
 ```lua
 -- ComboReadyCondition.lua
 type ComboReadyCondition = {
-  context: Context,
+  vm: ViewModel?,
 }
 
--- Called once when the script initializes.
--- Store context to access the main view model and other data.
 function init(self: ComboReadyCondition, context: Context): boolean
-  self.context = context
-  return true
+  self.vm = context:viewModel()
+  return self.vm ~= nil
 end
 
--- Runs every frame while the transition is a candidate.
--- Return true to allow the transition, false to block it.
 function evaluate(self: ComboReadyCondition): boolean
-  local vm = self.context:viewModel()
-  if vm == nil then return false end
+  local vm = self.vm
+  if vm == nil then
+    return false
+  end
 
-  local pressCount = vm:number("pressCount")
-  return pressCount ~= nil and pressCount:get() >= 3
+  local pressCount = vm:getNumber("pressCount")
+  if pressCount == nil then
+    return false
+  end
+
+  return pressCount.value >= 3
 end
 
 return function(): TransitionCondition<ComboReadyCondition>
   return {
     init = init,
     evaluate = evaluate,
-    context = late(),  -- late() defers initialization; Rive fills this in at runtime
+    vm = nil,
   }
 end
 ```
 
-> **API note:** `context = late()` in the return table is required — Rive uses it to inject the context before `init` runs. Verify `context:viewModel()` and `vm:number()` against `scripting/data-binding.mdx` and `scripting/protocols/transition-condition-scripts.mdx`.
+> **API note:** Rive passes `Context` to `init(self, context)`. Store values you need later on `self`; do not add a synthetic returned-table context field initialized with `late()`. ViewModel scalar properties are read through `vm:getNumber("name")` and `.value`.
 
 ## Notes
 
