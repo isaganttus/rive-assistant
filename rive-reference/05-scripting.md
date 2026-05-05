@@ -57,10 +57,11 @@ Extends Node (inherits all lifecycle). Additional:
 
 Protocol: `Converter<T, I, O>`, where `I` and `O` are exact `DataValue*` types chosen for the binding.
 - `init(self, context) -> bool`: Optional setup
-- Number-to-string example: `convert(self, input: DataValueNumber) -> DataValueString` (required)
-- Number-to-string 2-way example: `reverseConvert(self, input: DataValueString) -> DataValueNumber`
+- `convert(self, input: I) -> O`: Input to output (required)
+- `reverseConvert(self, input: O) -> I`: Output to input when the binding uses reverse or bidirectional flow
 - `advance(self, seconds) -> bool`: Optional time-based converter updates
 
+Number-to-string example: `convert(self, input: DataValueNumber) -> DataValueString` and `reverseConvert(self, input: DataValueString) -> DataValueNumber`.
 Number-to-string factory example: `Converter<MyConverter, DataValueNumber, DataValueString>`. Choose other exact `DataValue*` types to match other bindings.
 
 Created via Data Panel > Converters > Script.
@@ -219,7 +220,7 @@ while self.accumulator >= dt and steps < MAX_STEPS do
 end
 ```
 
-**Memory management**: Always remove listeners to prevent leaks.
+**Memory management**: Keep listened ViewModel/property lifetimes anchored on `self` or use the anchor overload; remove listeners when the script owns a lifecycle that unregisters them.
 
 **Artboard instantiation**: `self.enemy:instance(viewModel?)` — creates independent copy.
 
