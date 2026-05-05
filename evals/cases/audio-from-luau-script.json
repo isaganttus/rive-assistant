@@ -17,7 +17,7 @@
     "Use the Luau Audio global or context audio lookup for scripted playback",
     "Use `Audio.play(source)` or another `Audio.play*` global function for scripted playback",
     "Use `performAction(self, listenerContext)` for new Listener Action scripts",
-    "Mention Audio:play* returns an AudioSound-like handle for playback control",
+    "Mention `Audio.play*` functions return an AudioSound-like nullable handle for playback control",
     "Mention runtime and browser autoplay limitations when relevant"
   ],
   "red_flags": [

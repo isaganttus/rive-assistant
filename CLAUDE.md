@@ -24,7 +24,7 @@ Always provide cross-platform context when relevant. Default code examples to Ja
 **Legacy Inputs and Events are deprecated.** Always recommend **Data Binding with View Models** for new work.
 
 - Legacy Inputs: Can only drive state machine transitions, no listening API, limited types. Use View Model properties instead.
-- Legacy Events: Use Data Binding (for output) + Listeners (for input) instead. Exception: Audio Events are still valid for triggering sounds from timelines, transitions, and listeners. Audio can also be triggered via scripting using the `Audio` global API (`Audio:play*()` returns an `AudioSound` instance with full playback control).
+- Legacy Events: Use Data Binding (for output) + Listeners (for input) instead. Exception: Audio Events are still valid for triggering sounds from timelines, transitions, and listeners. Audio can also be triggered via scripting using the `Audio` global API (`Audio.play*()` functions return an `AudioSound?` handle with playback control when playback starts).
 - If asked about Inputs or Events, acknowledge the legacy approach but recommend the modern Data Binding path.
 
 ## Core Rive Vocabulary

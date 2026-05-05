@@ -12,6 +12,19 @@ SCRIPTING_SURFACES = [
     "rive-recipes/audio-from-script.md",
 ]
 
+AUDIO_SCRIPTING_SURFACES = [
+    "AGENTS.md",
+    "CLAUDE.md",
+    "GEMINI.md",
+    ".cursor/rules/rive.mdc",
+    ".windsurfrules",
+    ".github/copilot-instructions.md",
+    "rive-reference/02-state-machines-and-events.md",
+    "rive-reference/05-scripting.md",
+    "rive-recipes/audio-from-script.md",
+    "evals/cases/audio-from-luau-script.json",
+]
+
 STALE_PATTERNS = {
     "Vec2D": "Use `Vector` and `Vector.xy(...)` in Rive Luau scripts.",
     "vm:number(": "Use `vm:getNumber(...)` and read the returned property's `.value`.",
@@ -50,6 +63,17 @@ class ScriptingCodeQualityDocsTest(unittest.TestCase):
                 ):
                     self.fail(f"{location}: {LEGACY_LISTENER_ACTION_GUIDANCE}")
 
+    def test_audio_scripting_surfaces_use_dot_call_audio_global(self):
+        for relative_path in AUDIO_SCRIPTING_SURFACES:
+            for line_number, line in enumerate(self.read(relative_path).splitlines(), start=1):
+                location = f"{relative_path}:{line_number}"
+                with self.subTest(path=relative_path, line=line_number):
+                    self.assertNotIn(
+                        "Audio:play",
+                        line,
+                        f"{location}: Use `Audio.play*` dot-call global functions.",
+                    )
+
     def test_scripting_surfaces_teach_current_replacements(self):
         reference = self.read("rive-reference/05-scripting.md")
         self.assertIn("Before writing Luau code", reference)
@@ -66,6 +90,9 @@ class ScriptingCodeQualityDocsTest(unittest.TestCase):
         audio = self.read("rive-recipes/audio-from-script.md")
         self.assertIn("Audio.play", audio)
         self.assertIn("ListenerContext", audio)
+
+        events = self.read("rive-reference/02-state-machines-and-events.md")
+        self.assertIn("Audio.play", events)
 
 
 if __name__ == "__main__":
