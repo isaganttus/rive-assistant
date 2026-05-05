@@ -614,10 +614,18 @@ git commit -m "evals: cover current Rive scripting APIs"
 Run:
 
 ```bash
-rg -n "Vec2D|vm:number\\(|perform\\(self|context = late\\(\\)|DataInputs|DataOutput|:get\\(\\)" rive-reference/05-scripting.md rive-recipes/custom-converter.md rive-recipes/transition-condition-script.md rive-recipes/custom-layout.md rive-recipes/audio-from-script.md
+rg -n "Vec2D|vm:number\\(|context = late\\(\\)|DataInputs|DataOutput|:get\\(\\)" rive-reference/05-scripting.md rive-recipes/custom-converter.md rive-recipes/transition-condition-script.md rive-recipes/custom-layout.md rive-recipes/audio-from-script.md
 ```
 
 Expected result: no matches and exit code `1`.
+
+Run:
+
+```bash
+rg -n "perform\\(self" rive-reference/05-scripting.md rive-recipes/custom-converter.md rive-recipes/transition-condition-script.md rive-recipes/custom-layout.md rive-recipes/audio-from-script.md
+```
+
+Expected result: any matches must clearly mention deprecated or legacy context.
 
 - [ ] **Step 2: Run reference metadata validation**
 
