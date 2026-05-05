@@ -1,4 +1,8 @@
-# Data Binding List In React
+# Build A Dynamic UI
+
+## User Goal
+
+Plan a Rive UI that displays dynamic app data.
 
 ## Prompt
 

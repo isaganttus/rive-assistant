@@ -1,4 +1,8 @@
-# Runtime Renderer Choice
+# Choose A Runtime
+
+## User Goal
+
+Choose the right Rive runtime and renderer for a web or React project.
 
 ## Prompt
 
