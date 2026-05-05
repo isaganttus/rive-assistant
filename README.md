@@ -80,6 +80,12 @@ Open the cloned folder as your working directory. Each supported tool picks up i
 
 Copy the contents of `CLAUDE.md` as a system prompt and make the `rive-reference/` directory available as context or attachments.
 
+## Test your setup
+
+After connecting an AI tool to this repo, run the manual smoke checks in [docs/smoke-testing.md](docs/smoke-testing.md). The guide verifies that the tool loaded the right context, routes through the local reference files, prefers Data Binding with View Models over Legacy Inputs, and treats exact API signatures as source-verified details.
+
+For repeatable copy/paste checks, use the prompt examples in [examples/prompts/](examples/prompts/).
+
 ## Example questions
 
 Ask your AI tool questions like:
