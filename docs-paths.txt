@@ -19,6 +19,7 @@ community/community-overview
 community/marketplace-overview
 community/rive-experts
 copy
+editor/accessibility/semantics
 editor/ai-agent/ai-agent
 editor/animate-mode/animate-mode-overview
 editor/animate-mode/animating-draw-order
@@ -44,6 +45,8 @@ editor/data-binding/property-groups
 editor/data-binding/property-types
 editor/embed-urls/overview
 editor/events/audio-events
+editor/events/general-events
+editor/events/open-url-events
 editor/events/overview
 editor/exporting/exporting-for-backup
 editor/exporting/exporting-for-runtime
@@ -350,6 +353,7 @@ scripting/api-reference/luau/date-type-arg
 scripting/api-reference/luau/date-type-result
 scripting/api-reference/luau/vector
 scripting/api-reference/mat2d/mat2d
+scripting/api-reference/mat4/mat4
 scripting/api-reference/paint/blend-mode
 scripting/api-reference/paint/paint
 scripting/api-reference/paint/paint-definition
@@ -364,7 +368,7 @@ scripting/api-reference/path/path-data
 scripting/api-reference/path/path-measure
 scripting/api-reference/promise/promise
 scripting/api-reference/renderer/renderer
-scripting/api-reference/vec2d/vector
+scripting/api-reference/vector/vector
 scripting/configuration
 scripting/creating-scripts
 scripting/data-binding
