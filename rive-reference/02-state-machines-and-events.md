@@ -106,9 +106,9 @@ Events can fire from: Timeline (at specific frame), State (start/end), Transitio
 
 ### Audio via Scripting
 Audio can also be triggered programmatically using the `Audio` global scripting API:
-- `Context:audio(name)` — get a handle to an audio asset
-- `Audio:play*()` — play audio, returns an `AudioSound` instance
-- `AudioSound` methods: `play()`, `pause()`, `resume()`, `stop()`, `seek(seconds)`, `volume`
+- `context:audio(name)` — get an `AudioSource?` asset handle by name
+- `Audio.play(source)` and other `Audio.play*` functions — play audio and return an `AudioSound?` handle when playback starts
+- `AudioSound` methods: `play()`, `pause()`, `resume()`, `stop(fadeToStopTime?)`, `seek(seconds)`, `seekFrame(frame)`, `time()`, `timeFrame()`, `completed()`, and writable `volume`
 - Source docs: `scripting/api-reference/interfaces/audio-source.mdx`, `scripting/api-reference/interfaces/audio-sound.mdx`
 
 ## Inputs — DEPRECATED

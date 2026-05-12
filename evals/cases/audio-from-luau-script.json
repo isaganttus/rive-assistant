@@ -15,12 +15,16 @@
   "required_concepts": [
     "Explain that Audio Events remain valid for timeline, transition, and listener-triggered sounds",
     "Use the Luau Audio global or context audio lookup for scripted playback",
-    "Mention Audio:play* returns an AudioSound-like handle for playback control",
+    "Use `Audio.play(source)` or another `Audio.play*` global function for scripted playback",
+    "Use `performAction(self, listenerContext)` for new Listener Action scripts",
+    "Mention `Audio.play*` functions return an AudioSound-like nullable handle for playback control",
     "Mention runtime and browser autoplay limitations when relevant"
   ],
   "red_flags": [
     "Says all Rive Events are unusable without noting the audio exception",
     "Omits imported asset naming requirements",
+    "Calls unsupported `AudioSource:play()` or `AudioSource:playOnce()` methods instead of the `Audio` global",
+    "Uses deprecated `perform(self, pointerEvent)` for a new Listener Action example",
     "Claims every runtime supports every audio capability"
   ],
   "ideal_answer_shape": [

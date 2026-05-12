@@ -43,23 +43,26 @@ Lifecycle:
 
 Pointer callbacks: `pointerDown`, `pointerMove`, `pointerUp`, `pointerExit`
 
-Must implement at least `init` and `draw`.
+Common render scripts usually provide `init` and `draw`; lifecycle callbacks are optional and should match the behavior the script needs.
 
 ### Layout Scripts
-**Purpose**: Custom layout algorithms (masonry, carousels).
+**Purpose**: Custom layout measurement and resize behavior.
 
 Extends Node (inherits all lifecycle). Additional:
-- `measure(self) -> Vec2D`: Returns ideal size (only for Hug fit type)
-- `resize(self, size: Vec2D)`: Required; called when layout resizes
+- `measure(self) -> Vector`: Returns ideal size when the parent uses Hug sizing (optional)
+- `resize(self, size: Vector)`: Required; called when layout receives a size
 
 ### Converter Scripts
-**Purpose**: Transform data between view model and bound properties (2-way).
+**Purpose**: Transform data between view model and bound properties.
 
-- `init(self) -> bool`: Setup
-- `convert(self, input: DataInputs) -> output`: Input to output (required)
-- `reverseConvert(self, input: DataOutput) -> input`: Output to input (for 2-way binding)
+Protocol: `Converter<T, I, O>`, where `I` and `O` are exact `DataValue*` types chosen for the binding.
+- `init(self, context) -> bool`: Optional setup
+- `convert(self, input: I) -> O`: Input to output (required)
+- `reverseConvert(self, input: O) -> I`: Required by the protocol contract; used for output-to-input conversion when the binding uses reverse or bidirectional flow
+- `advance(self, seconds) -> bool`: Optional time-based converter updates
 
-Factory: `Converter<MyConverter, InputType, OutputType>`
+Number-to-string example: `convert(self, input: DataValueNumber) -> DataValueString` and `reverseConvert(self, input: DataValueString) -> DataValueNumber`.
+Number-to-string factory example: `Converter<MyConverter, DataValueNumber, DataValueString>`. Choose other exact `DataValue*` types to match other bindings.
 
 Created via Data Panel > Converters > Script.
 
@@ -67,7 +70,7 @@ Created via Data Panel > Converters > Script.
 **Purpose**: Modify path geometry in real-time (warping, distortion).
 
 - `init(self, context) -> bool`: Optional setup
-- `update(self, inPath: PathData) -> PathData`: Required; transforms path
+- `update(self, path: PathData, node: NodeReadData) -> PathData`: Required; transforms path. `node` is read-only node data.
 - `advance(self, seconds) -> bool`: Optional for animated effects
 
 Applied to strokes via Options menu > Effects.
@@ -81,8 +84,11 @@ Applied to strokes via Options menu > Effects.
 ### Listener Action Scripts
 **Purpose**: Run side effects when state machine listeners fire.
 
-- `init(self, context) -> bool`: Setup
-- `perform(self, pointerEvent)`: Called when listener fires (no return value)
+- `init(self, context) -> bool`: Optional setup
+- `performAction(self, listenerContext)`: Preferred listener callback
+- `perform(self, pointerEvent)`: Deprecated; mention only when explaining legacy files
+
+Use `ListenerContext` methods such as `isPointerEvent()` and `asPointerEvent()` to inspect what triggered the listener.
 
 ### Test Scripts
 **Purpose**: Unit test Util Scripts.
@@ -144,9 +150,9 @@ Three access methods:
 
 **Reading/writing view model properties**:
 - `vmi:getNumber('propName')`, `getString`, `getBoolean`, `getColor`, `getList`, `getViewModel`, `getEnum`
-- Write: `property.value = newValue`
+- Read/write scalar properties through `.value`: `health.value = health.value - 1`
 - Triggers: `getTrigger()` then `:fire()`
-- Listeners: `property:addListener(callback)` — always `removeListener` to prevent leaks
+- Listeners: `property:addListener(callback)`; store the view model or use the anchor overload so listeners are not garbage collected
 
 **Context utility methods**:
 - `context:image(name)` — get image asset
@@ -159,14 +165,14 @@ Three access methods:
 Register callbacks in the return table: `pointerDown`, `pointerMove`, `pointerUp`, `pointerExit`
 
 **PointerEvent properties**:
-- `position: Vec2D` — local coordinates relative to script
+- `position: Vector` — local coordinates relative to the script
 - `id: number` — unique identifier for multi-touch
 - `event:hit()` — mark as handled, prevent propagation
 - `event:hit(true)` — handle but pass through
 
 **Nested pointer forwarding**: Manually convert to local space and forward:
 ```lua
-local localEvent = PointerEvent.new(event.id, Vec2D.xy(event.position.x - offset.x, ...))
+local localEvent = PointerEvent.new(event.id, Vector.xy(event.position.x - offset.x, event.position.y - offset.y))
 self.enemy:pointerDown(localEvent)
 ```
 
@@ -180,7 +186,7 @@ self.enemy:pointerDown(localEvent)
 | Geometry | Path, PathCommand, PathData, ContourMeasure, PathMeasure | Path creation and measurement |
 | Styling | Paint, PaintDefinition, BlendMode, StrokeCap, StrokeJoin | Fill/stroke configuration |
 | Color | Color, Gradient, GradientStop | Color and gradient creation |
-| Math | Vec2D, Mat2D | Vector and matrix operations |
+| Math | Vector, Mat2D | Vector and matrix operations |
 | Images | Image, ImageFilter, ImageSampler, ImageWrap | Image handling |
 | Data | DataValue (Boolean, Color, Number, String) | Data binding values |
 | Reactive | Property, PropertyTrigger, Listener | Reactive data and events |
@@ -192,13 +198,13 @@ self.enemy:pointerDown(localEvent)
 
 **Path**: `Path.new()` with `moveTo()`, `lineTo()`, `quadTo()`, `cubicTo()`, `close()`, `reset()`, `add(otherPath, transform)`
 
-**Paint**: Set `color` (via `Color.rgba(r,g,b,a)` or `Color.hex()`), `stroke` width, `blendMode`, `strokeCap`, `strokeJoin`
+**Paint**: Set `style`, `thickness`, `cap`, `join`, `blendMode`, `feather`, `gradient`, and `color` (via `Color.rgba(r,g,b,a)` or `Color.hex()`)
 
 **Renderer**: `drawPath(path, paint)`, `drawImage(image, sampler, blendMode, opacity)`, `clipPath(path)`, `save()/restore()`, `transform(mat2d)`
 
 **Mat2D**: `Mat2D.withScale(sx, sy)` — fields: `xx, xy, yx, yy, tx, ty`
 
-**Vec2D**: `Vec2D.xy(x, y)` — fields: `x, y`
+**Vector**: `Vector.xy(x, y)` and `Vector.origin()`; fields: `x`, `y`
 
 **Important**: Don't mutate a path after drawing it in the same frame. Wait for next frame or create a new path.
 
@@ -214,9 +220,21 @@ while self.accumulator >= dt and steps < MAX_STEPS do
 end
 ```
 
-**Memory management**: Always remove listeners to prevent leaks.
+**Memory management**: Keep listened ViewModel/property lifetimes anchored on `self` or use the anchor overload; remove listeners when the script owns a lifecycle that unregisters them.
 
 **Artboard instantiation**: `self.enemy:instance(viewModel?)` — creates independent copy.
+
+## Before writing Luau code
+
+1. Identify the protocol first: `Node`, `Layout`, `Converter`, `PathEffect`, `TransitionCondition`, `ListenerAction`, `Test`, or Util.
+2. Use the protocol's exact lifecycle names and signatures. Protocol context is passed to `init(self, context)`; do not add a `context` field initialized with `late()` to returned protocol tables.
+3. Use exact source-pack type names: `Vector`, `Mat2D`, `Path`, `Paint`, `Renderer`, `DataValueNumber`, `DataValueString`, `ListenerContext`.
+4. Use `Vector.xy(...)`, not legacy or invented vector constructors.
+5. Access ViewModel properties with `vm:getNumber(...)`, `vm:getString(...)`, and the other `get*` methods. Nil-check the returned property before reading or writing `.value`.
+6. Keep `convert` and `evaluate` side-effect free. Listener actions and Node scripts are the right place for side effects such as audio playback.
+7. Use `performAction(self, listenerContext)` for new ListenerAction scripts. Only mention `perform(self, pointerEvent)` when explaining deprecated code.
+8. Remove listeners when a script owns their lifecycle, or keep the listened ViewModel anchored on `self`.
+9. If a method is not in the curated reference or source pack, do not invent it. State what must be verified in source docs instead.
 
 ## Debugging
 
