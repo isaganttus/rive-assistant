@@ -15,3 +15,16 @@ __pycache__/
 
 # Worktrees
 .worktrees/
+
+# Secrets and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa*
+secrets.*
+credentials.*
+
+# Local agent/editor config
+.claude/settings.local.json
