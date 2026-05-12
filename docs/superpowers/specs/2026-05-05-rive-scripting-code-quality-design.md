@@ -2,7 +2,7 @@
 
 ## Goal
 
-Improve the assistant's Rive Luau scripting output by correcting stale API guidance in the focused scripting reference surfaces. The update uses `/Users/isadoradias/Documents/Archive/Working/Code/Rive Scripting/Rive Docs` as the scripting source pack for API names, protocol shapes, and examples.
+Improve the assistant's Rive Luau scripting output by correcting stale API guidance in the focused scripting reference surfaces. The update uses a local Rive scripting reference pack as the source for API names, protocol shapes, and examples.
 
 ## Scope
 

@@ -6,7 +6,7 @@
 
 **Architecture:** Update the existing assistant knowledge surfaces in place: the curated scripting reference, the scripting recipes, and eval cases. Add a narrow regression test that fails when stale scripting tokens return to those surfaces.
 
-**Tech Stack:** Markdown reference docs, JSON eval cases, Python `unittest`/`pytest`, Rive Luau scripting source pack at `/Users/isadoradias/Documents/Archive/Working/Code/Rive Scripting/Rive Docs/reference`.
+**Tech Stack:** Markdown reference docs, JSON eval cases, Python `unittest`/`pytest`, a local Rive Luau scripting reference pack used as the source of truth for protocol shapes and API names.
 
 ---
 
