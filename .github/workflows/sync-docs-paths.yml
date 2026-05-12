@@ -88,9 +88,9 @@ jobs:
             <details>
             <summary>Path diff</summary>
 
-            ```diff
+            ``````diff
             ${{ steps.diff.outputs.content }}
-            ```
+            ``````
 
             </details>
 
