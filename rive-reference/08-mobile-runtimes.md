@@ -134,7 +134,8 @@ npm install rive-react-native
 
 ### Basic Usage
 ```jsx
-import Rive, { useRef } from "rive-react-native";
+import Rive from "rive-react-native";
+import { useRef } from "react";
 
 function MyComponent() {
   const riveRef = useRef(null);

@@ -38,7 +38,7 @@ function Player() {
   };
 
   const jump = () => {
-    vmRef.current?.trigger("jump").fire();
+    vmRef.current?.trigger("jump").trigger();
   };
 
   return (
@@ -55,7 +55,7 @@ function Player() {
 - Boolean: `vm.boolean("name").value = true`
 - Number: `vm.number("name").value = 42`
 - String: `vm.string("name").value = "hello"`
-- Trigger: `vm.trigger("name").fire()`
+- Trigger: `vm.trigger("name").trigger()` (runtime SDK). Note: Luau scripting uses a separate `vmi:getTrigger("name"):fire()` API.
 
 > **API note:** Verify exact method names against `runtimes/react/data-binding.mdx` and your platform's runtime docs.
 

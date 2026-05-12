@@ -30,7 +30,7 @@ Reusable artboard instances. Toggle component mode on any artboard or use Shift+
 | **Layout** | Contains responsive Layouts; artboard size changes to reflow contents |
 
 ### Key Features
-- **Expose Inputs/Events**: Right-click > "expose to main artboard" — accessible via listeners and Inputs panel
+- **Expose Inputs/Events**: Right-click > "expose to main artboard" — accessible via listeners and Inputs panel. **Deprecated** for new work — prefer exposing View Model properties on the component instead (see `03-data-binding.md`).
 - **Animation playback**: Simple (key start + speed) or Remap (key time percent 0-100%)
 - **Mix Value**: Default 100%; controls animation blending
 

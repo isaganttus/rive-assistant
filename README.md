@@ -43,7 +43,7 @@ Then run the checks in [docs/smoke-testing.md](docs/smoke-testing.md). If the as
 
 - **`AGENTS.md`** — Codex context file defining the assistant's role, Rive vocabulary, deprecation notices, and documentation routing rules
 - **`CLAUDE.md`** — Claude Code context file with the same Rive assistant behavior
-- **`rive-reference/`** — 11 curated reference files covering common building-with-Rive domains: editor, state machines, data binding, layouts, scripting, runtimes, and best practices
+- **`rive-reference/`** — 10 curated reference files plus a concept map covering common building-with-Rive domains: editor, state machines, data binding, layouts, scripting, runtimes, and best practices
 - **`rive-recipes/`** — 10 code-first recipes for common Rive tasks
 - **`evals/`** — Answer-quality evals that define required concepts, red flags, and source-routing expectations for representative Rive questions
 - **`GEMINI.md`, `.cursor/rules/rive.mdc`, `.windsurfrules`, `.github/copilot-instructions.md`** — Native context files for Gemini CLI, Cursor, Windsurf, and GitHub Copilot

@@ -50,7 +50,7 @@ function Feed({ items }: { items: FeedItem[] }) {
     }
 
     // Get the view model definition to create blank instances
-    const itemViewModel = rive.viewModel("ItemVM");
+    const itemViewModel = rive.viewModelByName("ItemVM");
     for (const item of items) {
       const instance = itemViewModel.instance();
       instance.string("name").value = item.name;
@@ -88,7 +88,7 @@ list.swap(0, 3); // swap items at index 0 and 3
 
 - Artboard Lists inherit layout properties (wrapping, gap, scroll) from their parent container.
 - For large lists (100+ items), enable **Virtualize** on the Artboard List — only visible items are rendered.
-- List instances are created from the view model definition (`rive.viewModel("ItemVM").instance()`) — each instance is independent.
+- List instances are created from the view model definition (`rive.viewModelByName("ItemVM").instance()`) — each instance is independent.
 - For incremental updates, use `list.instanceAt(index)` to update specific items rather than rebuilding the whole list.
 - `list.length` gives the current count of instances in the list.
 - To swap two items in place, use `list.swap(index1, index2)`.
