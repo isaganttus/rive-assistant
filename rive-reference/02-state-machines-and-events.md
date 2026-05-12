@@ -24,8 +24,8 @@ State Machines are visual systems connecting animations with logic-driven transi
 
 ### Animation States
 - **Single Animation State**: One timeline. Can be one-shot, looping, or ping-pong.
-- **1D Blend State**: Mixes multiple timelines with a single numerical value. Additive blending (not linear). Use for: loading bars, health systems, scrolling interactions.
-- **Additive Blend State**: Blends multiple timelines using multiple number values. Has "Blend by Value" (baseline pose) and "Blend by Input" (controlled mix). Use for: dynamic face rigs, complex pose blending.
+- **1D Blend State**: Mixes multiple timelines driven by a single numerical input. The mix curve is additive (not strict linear interpolation), which can yield unexpected results when blending similar poses. Use for: loading bars, health systems, scrolling interactions.
+- **Additive Blend State**: Blends multiple timelines using multiple number inputs (one per contributing timeline). Has "Blend by Value" (baseline pose) and "Blend by Input" (controlled mix). Use for: dynamic face rigs, complex pose blending.
 
 ### State Properties
 - **Animation**: Assigned timeline
