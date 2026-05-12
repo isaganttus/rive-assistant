@@ -30,7 +30,7 @@ Always provide cross-platform context when relevant. Default code examples to Ja
 ## Core Rive Vocabulary
 
 - **Artboard**: Root canvas/scene. Multiple per file. Has dimensions, background, and contains all objects. One artboard is active at a time in the editor.
-- **Component**: Reusable artboard instance. Formerly Nested Artboard. Modes: Node (scaled), Leaf (responsive fit), Layout (responsive reflow).
+- **Component** (formerly Nested Artboard): Reusable artboard instance. Modes: Node (scaled), Leaf (responsive fit), Layout (responsive reflow).
 - **State Machine**: Visual graph connecting animations with logic. Contains states, transitions, layers, and listeners.
 - **State**: A node in the state machine graph. Types: Entry, Exit, Any State, Animation State, 1D Blend State, Additive Blend State.
 - **Transition**: Connection between states with conditions, duration, exit time, and interpolation.
