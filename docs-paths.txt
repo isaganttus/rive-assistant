@@ -59,7 +59,6 @@ editor/fundamentals/fill-and-stroke
 editor/fundamentals/freeze-and-origin
 editor/fundamentals/groups
 editor/fundamentals/importing-assets
-editor/fundamentals/overview
 editor/fundamentals/pen-tool-overview
 editor/fundamentals/procedural-shapes
 editor/fundamentals/revision-history
@@ -338,6 +337,7 @@ scripting/api-reference/interfaces/data-context
 scripting/api-reference/interfaces/decoded-image
 scripting/api-reference/interfaces/enum-values
 scripting/api-reference/interfaces/input
+scripting/api-reference/interfaces/interpolator
 scripting/api-reference/interfaces/layout
 scripting/api-reference/interfaces/listener-action
 scripting/api-reference/interfaces/node
